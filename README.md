@@ -37,9 +37,9 @@ The page opens on a chart, not a wall of text, and splits into three tabs:
    (TNUoS), and the Nuclear RAB levy is a separate line, as on today's bills;
    tem passes the network charge through at cost (its forecast for the site)
    and includes the RAB levy in its rates. The tab
-   shows the two totals, the difference, the savings over a 2-year and a
-   3-year contract, the two commissions side by side, every charge line by
-   line, where the difference comes from, and its assumptions.
+   leads with the headline figure, the saving over tem's 2-year contract,
+   then shows the two yearly totals, the two commissions side by side, every
+   charge line by line, where the difference comes from, and its assumptions.
 
 Every chart has a hover (and tap) read-out, a table or text alternative, and
 is drawn from the embedded data at the container's real width, so labels stay

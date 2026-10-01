@@ -275,12 +275,20 @@ th:first-child,td:first-child{text-align:left}
 .sc-bar{margin-top:16px;height:12px;border-radius:6px;background:var(--tint-2);overflow:hidden}
 .sc-bar span{display:block;height:100%;border-radius:6px;background:#7d8e97}
 .sim-card.tem .sc-bar span{background:linear-gradient(90deg,#ff7a4f,#ff3f10)}
-.sim-save{margin-top:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 28px;padding:20px 24px;border-radius:20px;
-  background:linear-gradient(165deg,#134359,#0b2230);color:#fff;box-shadow:var(--sh-2)}
-.sim-save .k{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8fcbe6}
-.ss-v{margin-top:6px;font-size:40px;font-weight:850;letter-spacing:-.03em;line-height:1}
-.ss-v small{font-size:15px;font-weight:600;color:rgba(226,237,242,.8);margin-left:8px;letter-spacing:0}
-.sim-save p{font-size:14.5px;line-height:1.5;color:rgba(226,237,242,.88);max-width:420px}
+.sim-save{position:relative;overflow:hidden;margin-top:26px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px 36px;
+  padding:30px 34px 30px;border-radius:24px;background:linear-gradient(150deg,#16536d,#0b2230 70%);color:#fff;box-shadow:var(--sh-2)}
+.sim-save::before{content:"";position:absolute;right:-90px;top:-110px;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle, rgba(127,220,196,.30), transparent 68%);pointer-events:none}
+.sim-save::after{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#7fdcc4,#3a89ae)}
+.sim-save > *{position:relative}
+.sim-save .k{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8fcbe6}
+.ss-v{margin-top:10px;font-size:76px;font-weight:850;letter-spacing:-.04em;line-height:.95;
+  background:linear-gradient(100deg,#ffffff 20%,#7fdcc4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ss-dates{margin-top:12px;font-size:13.5px;color:rgba(226,237,242,.75)}
+.ss-side{max-width:380px;padding-bottom:4px}
+.ss-yr{font-size:15px;color:rgba(226,237,242,.85)}
+.ss-yr b{font-size:28px;font-weight:800;letter-spacing:-.02em;color:#fff;margin-right:4px}
+.sim-save p{margin-top:8px;font-size:14px;line-height:1.5;color:rgba(226,237,242,.85)}
 .sim-save p b{color:#7fdcc4}
 .sim-h{margin:30px 0 0;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .cmp-wrap{margin-top:12px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
@@ -307,8 +315,6 @@ th:first-child,td:first-child{text-align:left}
 .src .v{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--brand)}
 .src h4{grid-column:2;margin:0;font-size:14px;font-weight:750;color:var(--ink)}
 .src p{grid-column:2;font-size:12.5px;line-height:1.5;color:var(--muted)}
-.sim-ctx{margin-top:12px;display:flex;gap:10px;align-items:flex-start;padding:12px 16px;border-radius:14px;background:var(--tint-2);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
-.sim-ctx::before{content:"i";flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:800;font-style:italic;display:grid;place-items:center;margin-top:1px}
 .dif{margin-top:12px;border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden}
 .dif-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) 100px;gap:6px 18px;align-items:center;padding:12px 18px;border-top:1px solid var(--line-2)}
 .dif-row:first-child{border-top:0}
@@ -322,15 +328,6 @@ th:first-child,td:first-child{text-align:left}
 .dif-v.cheap{color:var(--good)} .dif-v.dear{color:var(--warn)}
 .dif-row.net{background:var(--tint)}
 .dif-row.net h4{font-size:15px}
-.term{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
-.term-card{border-radius:18px;padding:16px 20px;border:1px solid var(--line);background:#fff;position:relative}
-.term-card.best{border-color:rgba(15,122,100,.35);background:linear-gradient(160deg,#fff 30%,var(--good-bg))}
-.term-card .tk{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.term-card .tv{margin-top:6px;font-size:30px;font-weight:800;letter-spacing:-.025em;line-height:1.05;color:var(--brand)}
-.term-card.best .tv{color:var(--good)}
-.term-card .tv small{font-size:14px;font-weight:600;color:var(--muted);margin-left:6px;letter-spacing:0}
-.term-card p{margin-top:6px;font-size:12.5px;line-height:1.5;color:var(--muted)}
-.term-card .badge{position:absolute;top:14px;right:14px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--good);color:#fff}
 .comm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px}
 .comm-card{border-radius:16px;padding:14px 18px;border:1px solid var(--line);background:#fff}
 .comm-card.tem{border-color:rgba(255,63,16,.28);background:#fff9f6}
@@ -356,7 +353,7 @@ th:first-child,td:first-child{text-align:left}
 .tip .m{color:rgba(226,237,242,.7)}
 @media (max-width:860px){
   .pie-grid{grid-template-columns:minmax(0,1fr)}
-  .sim-top,.src-list,.term,.comm{grid-template-columns:minmax(0,1fr)}
+  .sim-top,.src-list,.comm{grid-template-columns:minmax(0,1fr)}
   .pie-side .bd{order:-1;margin-bottom:12px}
   .kpis{grid-template-columns:minmax(0,1fr)}
   .points{grid-template-columns:1fr}
@@ -389,7 +386,9 @@ th:first-child,td:first-child{text-align:left}
   .cmp td{border-top:0;text-align:left;padding-top:4px}
   .cmp td::before{content:attr(data-who);display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
   .cmp td.c-tem::before{color:#c2330b}
-  .sc-total,.ss-v{font-size:34px}
+  .sc-total{font-size:34px}
+  .ss-v{font-size:56px}
+  .sim-save{padding:24px 22px}
   .tab .lbl-f{display:none} .tab .lbl-s{display:inline}
   .tab{padding:9px 12px;gap:8px;font-size:14px}
 }
@@ -582,7 +581,19 @@ th:first-child,td:first-child{text-align:left}
   <section class="card sim" aria-labelledby="h-sim">
     <div class="kicker">June 2027 simulation</div>
     <h2 id="h-sim">Staying with British Gas vs moving to tem with RenewaBlox</h2>
-    <p class="lead">The year from 9 June 2027, when today&rsquo;s British Gas contract ends, on the church&rsquo;s own use &mdash; like for like: both at 110 kVA with the charity rate of VAT and no Climate Change Levy, and each with its broker&rsquo;s commission shown in the open.</p>
+    <p class="lead">tem&rsquo;s 2-year contract from 9 June 2027, when today&rsquo;s British Gas contract ends, on the church&rsquo;s own use &mdash; like for like: both at 110 kVA with the charity rate of VAT and no Climate Change Levy, and each with its broker&rsquo;s commission shown in the open.</p>
+
+    <div class="sim-save">
+      <div class="ss-main">
+        <div class="k">Saved over tem&rsquo;s 2-year contract</div>
+        <div class="ss-v" id="save-2y"></div>
+        <div class="ss-dates">9 June 2027 to 8 June 2029, like for like</div>
+      </div>
+      <div class="ss-side">
+        <div class="ss-yr"><b id="save-yr"></b> a year</div>
+        <p id="save-sub"></p>
+      </div>
+    </div>
 
     <div class="sim-top">
       <div class="sim-card bg">
@@ -601,12 +612,6 @@ th:first-child,td:first-child{text-align:left}
       </div>
     </div>
 
-    <div class="sim-save">
-      <div><div class="k">The difference</div><div class="ss-v"><span id="save-total"></span><small>a year less</small></div></div>
-      <p id="save-sub"></p>
-    </div>
-    <div class="term" id="term"></div>
-    <p class="sim-ctx" id="sim-ctx"></p>
 
     <h3 class="sim-h">Commission, in the open</h3>
     <div class="comm">
@@ -1081,15 +1086,9 @@ function drawPie(){
   $('#bg-month').textContent = `About ${gbp(r10(bgTot / 12))} a month, VAT included`;
   $('#tem-month').textContent = `About ${gbp(r10(temTot / 12))} a month, VAT included`;
   $('#bg-bar').style.width = '100%'; $('#tem-bar').style.width = (temTot / bgTot * 100).toFixed(1) + '%';
-  $('#save-total').textContent = gbp(save);
-  $('#save-sub').innerHTML = `<b>${Math.round(save / bgTot * 100)}% less</b> than staying with British Gas, like for like: about ${gbp(r10(save / 12))} a month.`;
-  // the longer the contract, the more it saves
-  $('#term').innerHTML = `<div class="term-card"><div class="tk">2-year contract, as quoted</div><div class="tv">${gbp(save * 2)}<small>saved</small></div><p>9 June 2027 to 8 June 2029.</p></div>
-    <div class="term-card best"><span class="badge">More savings</span><div class="tk">3-year contract</div><div class="tv">${gbp(save * 3)}<small>saved</small></div><p>Another ${gbp(save)} on top, if tem fixes the same prices for a third year.</p></div>`;
-  // the changes are worth far more than the switch: what staying put would cost without them
-  const asIs = r10((R('Electricity in the day').bg[0] + R('Electricity at night').bg[0] + R('Standing charge').bg[0] + R('Nuclear RAB levy').bg[0]
-    + r10(250 * BG.capacity / 100 * 365) + r10(tk * 0.801 / 100)) * 1.2);
-  $('#sim-ctx').innerHTML = `<span>Both sides include the changes RenewaBlox would make: the charity rate of VAT, no levy and the 110 kVA connection. Without them &mdash; 250 kVA, 20% VAT and the levy &mdash; renewing with British Gas would cost about <b>${gbp(asIs)}</b> a year. Over the last 12 months the church paid British Gas <b>£73,764</b>.</span>`;
+  $('#save-2y').textContent = gbp(save * 2);
+  $('#save-yr').textContent = gbp(save);
+  $('#save-sub').innerHTML = `<b>${Math.round(save / bgTot * 100)}% less</b> than renewing with British Gas: about ${gbp(r10(save / 12))} a month, every month of the contract.`;
   // commission, side by side
   const cBg = R('of which, broker commission').bg[0], cTem = R('of which, broker commission').tem[0];
   $('#comm-bg-v').innerHTML = `${BG_COMM.toFixed(2)}p a kWh<small>about ${gbp(cBg)} a year</small>`;
