@@ -33,10 +33,9 @@ The page opens on a chart, not a wall of text, and splits into three tabs:
    Each unit rate carries its broker's commission, shown in the open: 1.00p a
    kWh for British Gas's broker, Annex Solutions (in British Gas's renewal
    prices), and 0.5p a kWh for RenewaBlox (added to tem's quoted rates).
-   British Gas's bills since May 2026 add the national network charge (TNUoS
-   RIIO-3) and the Nuclear RAB levy on top of its contract prices, and its
-   renewal standing charge is too low to include the network charge, so both
-   are added to the British Gas side; the network charge is the same figure on
+   British Gas's renewal bills the national network charge (TNUoS) and the
+   Nuclear RAB levy as separate lines on top of its prices, as today's bills do,
+   so both are added to the British Gas side; the network charge is the same figure on
    both sides because it belongs to the site's band, not the supplier. The tab
    shows the two totals, the difference, the savings over a 2-year and a
    3-year contract, the two commissions side by side, every charge line by
