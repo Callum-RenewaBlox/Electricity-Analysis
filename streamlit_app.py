@@ -2,10 +2,9 @@
 
 Fourteen months of half-hourly meter readings for Citygate Church (138a
 Holdenhurst Road, Bournemouth), told in plain English for the church's
-leaders: the short version up top, kW, kWh and kVA in one card each, then the
-whole year in one picture, a typical week, where the electricity goes, the
-seasons, the grid connection drawn as a 250-seat hall, and what the data could
-be worth, with a sensible order to act in.
+leaders, in three tabs: Charity consumption (a donut of business against
+charity use, opened first), Electricity portrait (the findings in full) and
+Savings & next steps (four ways to lower the bill, in order).
 
 Self-contained: reads ``citygate_electricity.html`` (hand-authored; Inter, the
 wordmark and the meter data inlined, no CDN, no requests) and renders it via

@@ -9,28 +9,23 @@ half-hourly meter readings for Citygate Church (138a Holdenhurst Road,
 Bournemouth), told in plain English for the church's leaders, who are not
 energy people.
 
-The page reads top to bottom as a briefing:
+The page opens on a chart, not a wall of text, and splits into three tabs:
 
-* **The short version** — the four ways the data points to lower bills, what
-  each could be worth in a year and how ready it is, in the dark summary panel
-  (pinned beside the page on a wide screen, under the introduction on a narrow
-  one), with a "Talk to us" button.
-* **Three words that make the rest easy** — kW, kWh and kVA, one card each,
-  with an everyday comparison (a speedometer, miles travelled, seats booked in
-  a hall).
-* **01 The whole picture** — every half-hour of the fourteen months in one
-  heat map, with numbered markers tied to the notes beneath it and Christmas
-  and Easter flagged.
-* **02 A week in the life** — an average winter week against an average summer
-  week, hour by hour.
-* **03 Where the electricity goes** — the always-on use against the extra used
-  on weekdays, evenings and weekends.
-* **04 Through the year** — each month's use, with August and September set
-  against the same months of 2025.
-* **05 The size of the connection** — the 250 kVA connection drawn as a
-  250-seat hall, and every day's busiest half-hour against it.
-* **06 What this could be worth** — the four savings in detail and a sensible
-  order to take them in.
+1. **Charity consumption** (opens first) — a large donut of the last 12
+   months' electricity, business use in amber and charity use in petrol, each
+   slice labelled with its share (central estimates, marked `~`). Hovering or
+   tapping a slice lifts it out and lights it up while the rest dim; the
+   centre and the list beside the chart follow it. A bar underneath sets the
+   ~88% charity share against the 60% line at which the whole supply gets the
+   charity rate of VAT and no Climate Change Levy.
+2. **Electricity portrait** — the findings in full: the year at a glance, kW,
+   kWh and kVA in one card each, then the whole year in one half-hourly heat
+   map (numbered markers, Christmas and Easter flagged), a winter and a summer
+   week, where the electricity goes, the months against last year, and the
+   250 kVA connection drawn as a 250-seat hall.
+3. **Savings & next steps** — the four ways the data points to lower bills,
+   each with its value, how ready it is and what it involves, in the order to
+   take them, and a "Talk to us" button.
 
 Every chart has a hover (and tap) read-out, a table or text alternative, and
 is drawn from the embedded data at the container's real width, so labels stay
@@ -55,6 +50,15 @@ requests, so edit it directly:
   computed from `heat` over the 365 days to 28 September 2026: each day's
   always-on level is its average from 1am to 5am, and anything above it is
   counted against the time of week it was used.
+* **Charity consumption.** Business use is the café, estimated from its
+  opening hours (Monday to Friday 8.30am to 3pm, Sundays 10am to 2pm) at the
+  middle of each range: about 4 kW while open (6,600 kWh on weekdays, 800 on
+  Sundays), fridges and chillers at about 1.1 kW around the clock (9,900) and
+  heating the café area on winter weekdays (2,000) — ~19,300 kWh, ~12% of the
+  year. Each part is taken out of the matching part of the split (the fridges
+  from the always-on use, the rest from the times the café is open), and
+  everything left is charity use. Paid room hire would also be business use
+  and is not in the estimate; the church's VAT adviser confirms the share.
 * **Colour.** Winter `#21709b` and summer `#d4721a` were checked as a pair for
   colour-blind separation and contrast on white; the heat map uses a single
   petrol ramp from light to dark.
