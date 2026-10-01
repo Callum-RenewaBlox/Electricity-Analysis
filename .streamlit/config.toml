@@ -1,0 +1,10 @@
+# Light theme in the RenewaBlox palette, so the moment before the page loads
+# matches it. The page draws everything else itself.
+[theme]
+base = "light"
+primaryColor = "#12475e"
+backgroundColor = "#f4f8fa"
+textColor = "#0d1b23"
+
+[client]
+toolbarMode = "minimal"
