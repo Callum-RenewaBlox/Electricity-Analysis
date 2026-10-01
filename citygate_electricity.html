@@ -79,13 +79,21 @@ main{grid-area:body;min-width:0;display:flex;flex-direction:column;gap:22px}
 .kicker::before{content:"";width:20px;height:2px;background:currentColor;border-radius:2px;flex:none}
 .intro h2,.charity h2,.savings h2{margin:0;font-size:40px;line-height:1.06;letter-spacing:-.028em;font-weight:800;color:var(--brand);max-width:620px;text-wrap:balance}
 .intro .lead,.charity .lead,.savings .lead{margin:16px 0 0;font-size:16.5px;line-height:1.65;color:var(--ink-2);max-width:680px}
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
-.kpi{background:var(--tint);border:1px solid var(--line-2);border-radius:14px;padding:15px 16px 14px;min-width:0}
-.kpi .k{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.kpi .v{margin-top:7px;font-size:27px;font-weight:800;letter-spacing:-.025em;color:var(--brand);line-height:1.05;white-space:nowrap}
-.kpi .v small{font-size:13px;font-weight:650;color:var(--muted);margin-left:3px;letter-spacing:0}
-.kpi .v.good{color:var(--good)}
-.kpi .s{margin-top:6px;font-size:12.5px;line-height:1.45;color:var(--muted)}
+/* the three headlines, each in its own colour: petrol for the year, warm amber for the peak, night indigo for the night */
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px}
+.kpi{position:relative;overflow:hidden;border-radius:18px;padding:18px 20px 18px;min-width:0;color:#fff;box-shadow:var(--sh-1)}
+.kpi::before{content:"";position:absolute;right:-50px;top:-50px;width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.22), transparent 70%);pointer-events:none}
+.kpi.year{background:linear-gradient(150deg,#21709b,#12475e 70%)}
+.kpi.peak{background:linear-gradient(150deg,#d9781f,#a9580c 75%)}
+.kpi.night{background:linear-gradient(150deg,#5464a6,#2c3769 75%)}
+.kpi > *{position:relative}
+.kpi .ki{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.16);margin-bottom:12px}
+.kpi .ki svg{width:19px;height:19px}
+.kpi .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.kpi .v{margin-top:6px;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.05;white-space:nowrap}
+.kpi .v small{font-size:15px;font-weight:650;color:rgba(255,255,255,.82);margin-left:4px;letter-spacing:0}
+.kpi .s{margin-top:8px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.9)}
 .note-ill{margin-top:16px;font-size:12px;line-height:1.5;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
 .note-ill::before{content:"i";flex:none;width:16px;height:16px;border-radius:50%;background:var(--tint-3);color:var(--accent);
   font-size:10px;font-weight:800;display:grid;place-items:center;font-style:italic;margin-top:1px}
@@ -279,7 +287,7 @@ th:first-child,td:first-child{text-align:left}
 @media (max-width:860px){
   .pie-grid{grid-template-columns:minmax(0,1fr)}
   .pie-side .bd{order:-1;margin-bottom:12px}
-  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpis{grid-template-columns:minmax(0,1fr)}
   .points{grid-template-columns:1fr}
   .split-list{grid-template-columns:1fr 1fr}
 }
@@ -295,8 +303,7 @@ th:first-child,td:first-child{text-align:left}
   .tabs{padding:0 10px;gap:4px}
   .steps li{grid-template-columns:32px minmax(0,1fr)}
   .steps .sv{grid-column:2;align-items:flex-start;text-align:left;min-width:0}
-  .kpi .v{font-size:23px}
-  .kpi .k{letter-spacing:.07em;min-height:2.6em}
+  .kpi .v{font-size:30px}
   .shead h3{font-size:20px}
   .explain{font-size:15px}
   .chartbox{padding:12px 10px 8px;margin-left:-6px;margin-right:-6px}
@@ -391,12 +398,10 @@ th:first-child,td:first-child{text-align:left}
     <div class="kicker">Citygate Church &middot; August 2025 to September 2026</div>
     <h2>How your building uses electricity</h2>
     <div class="kpis">
-      <div class="kpi"><div class="k">Used in a year</div><div class="v">161,500<small>kWh</small></div><div class="s">About what 60 typical homes use in a year.</div></div>
-      <div class="kpi"><div class="k">Busiest moment</div><div class="v">80<small>kW</small></div><div class="s">1pm, Monday 5 January 2026, the first working day after Christmas. Like 27 kettles boiling at once.</div></div>
-      <div class="kpi"><div class="k">Running at night</div><div class="v">8.6<small>kW</small></div><div class="s">The average from 1am to 5am, with the building empty. It never drops to zero.</div></div>
-      <div class="kpi"><div class="k">Year on year</div><div class="v good">&darr;&thinsp;25<small>%</small></div><div class="s">Good news: 1 August to 28 September 2026, against the same dates in 2025.</div></div>
+      <div class="kpi year"><span class="ki" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg></span><div class="k">Used in a year</div><div class="v">161,500<small>kWh</small></div><div class="s">About what 60 typical homes use in a year.</div></div>
+      <div class="kpi peak"><span class="ki" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M4 16l5-6 4 3 7-9"/><path d="M15 4h5v5"/></svg></span><div class="k">Busiest moment</div><div class="v">80<small>kW</small></div><div class="s">1pm, Monday 5 January 2026, the first working day after Christmas. Like 27 kettles boiling at once.</div></div>
+      <div class="kpi night"><span class="ki" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><div class="k">Running at night</div><div class="v">8.6<small>kW</small></div><div class="s">The average from 1am to 5am, with the building empty. It never drops to zero.</div></div>
     </div>
-    <p class="note-ill">&ldquo;A year&rdquo; means the 365 days to 28 September 2026; a typical home uses about 2,700 kWh a year.</p>
   </div>
 
 
