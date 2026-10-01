@@ -26,19 +26,21 @@ The page opens on a chart, not a wall of text, and splits into three tabs:
    the whole year in one half-hourly heat map (numbered markers, Christmas and Easter flagged), a winter and a summer
    week, where the electricity goes, the months against last year, and the
    250 kVA connection drawn as a 250-seat hall.
-3. **June 2027 simulation** — staying with British Gas against moving to tem
-   with RenewaBlox for the first year of tem's contract (from 9 June 2027), on
-   the last 12 months of meter readings, like for like: both at 110 kVA with
-   the charity rate of VAT (5%) and no Climate Change Levy, and both unit
-   rates carrying a 1p broker commission (British Gas's contract shows a 1.00p
-   uplift for its broker; 1p is added to tem's quoted rates for RenewaBlox).
-   The national network charge (TNUoS) is banded by the site's connection and
-   set by the network, not the supplier, and the bands are fixed until 31 March
-   2031, so it is the same band either way. The tab shows the two totals, the
-   difference, every charge line by line, where the difference comes from, and
-   what staying put without the changes would cost. The page works the bills
-   out from the embedded meter data and the two price lists, and states its
-   assumptions under the comparison.
+3. **June 2027 simulation** — renewing with British Gas against moving to tem
+   with RenewaBlox for the year from 9 June 2027, when today's British Gas
+   contract ends, on the last 12 months of meter readings, like for like: both
+   at 110 kVA with the charity rate of VAT (5%) and no Climate Change Levy.
+   Each unit rate carries its broker's commission, shown in the open: 1.00p a
+   kWh for British Gas's broker, Annex Solutions (in British Gas's renewal
+   prices), and 0.5p a kWh for RenewaBlox (added to tem's quoted rates).
+   British Gas's bills since May 2026 add the national network charge (TNUoS
+   RIIO-3) and the Nuclear RAB levy on top of its contract prices, and its
+   renewal standing charge is too low to include the network charge, so both
+   are added to the British Gas side; the network charge is the same figure on
+   both sides because it belongs to the site's band, not the supplier. The tab
+   shows the two totals, the difference, the savings over a 2-year and a
+   3-year contract, the two commissions side by side, every charge line by
+   line, where the difference comes from, and its assumptions.
 
 Every chart has a hover (and tap) read-out, a table or text alternative, and
 is drawn from the embedded data at the container's real width, so labels stay

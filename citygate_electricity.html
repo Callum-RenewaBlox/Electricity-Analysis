@@ -322,6 +322,27 @@ th:first-child,td:first-child{text-align:left}
 .dif-v.cheap{color:var(--good)} .dif-v.dear{color:var(--warn)}
 .dif-row.net{background:var(--tint)}
 .dif-row.net h4{font-size:15px}
+.term{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.term-card{border-radius:18px;padding:16px 20px;border:1px solid var(--line);background:#fff;position:relative}
+.term-card.best{border-color:rgba(15,122,100,.35);background:linear-gradient(160deg,#fff 30%,var(--good-bg))}
+.term-card .tk{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.term-card .tv{margin-top:6px;font-size:30px;font-weight:800;letter-spacing:-.025em;line-height:1.05;color:var(--brand)}
+.term-card.best .tv{color:var(--good)}
+.term-card .tv small{font-size:14px;font-weight:600;color:var(--muted);margin-left:6px;letter-spacing:0}
+.term-card p{margin-top:6px;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.term-card .badge{position:absolute;top:14px;right:14px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--good);color:#fff}
+.comm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px}
+.comm-card{border-radius:16px;padding:14px 18px;border:1px solid var(--line);background:#fff}
+.comm-card.tem{border-color:rgba(255,63,16,.28);background:#fff9f6}
+.cc-who{font-size:12.5px;font-weight:800;color:var(--ink-2)}
+.comm-card.tem .cc-who{color:#c2330b}
+.cc-v{margin-top:4px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.cc-v small{font-size:13px;font-weight:600;color:var(--muted);margin-left:5px;letter-spacing:0}
+.comm-card p{margin-top:4px;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.cmp tr.of th,.cmp tr.of td{border-top:1px dashed var(--line);padding-top:8px;padding-bottom:10px;background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(13,27,35,.018) 6px 12px)}
+.cmp tr.of th{font-size:12.5px;font-weight:650;color:var(--ink-2);padding-left:30px}
+.cmp tr.of td b{font-size:13px;font-weight:700;color:var(--ink-2)}
+.cmp tr.of td.c-tem{background-color:#fff9f6}
 /* footer */
 .foot-note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 36px;margin-top:6px;padding:20px 4px 0;
   border-top:1px solid var(--line);font-size:12px;line-height:1.65;color:var(--muted)}
@@ -335,7 +356,7 @@ th:first-child,td:first-child{text-align:left}
 .tip .m{color:rgba(226,237,242,.7)}
 @media (max-width:860px){
   .pie-grid{grid-template-columns:minmax(0,1fr)}
-  .sim-top,.src-list{grid-template-columns:minmax(0,1fr)}
+  .sim-top,.src-list,.term,.comm{grid-template-columns:minmax(0,1fr)}
   .pie-side .bd{order:-1;margin-bottom:12px}
   .kpis{grid-template-columns:minmax(0,1fr)}
   .points{grid-template-columns:1fr}
@@ -544,7 +565,7 @@ th:first-child,td:first-child{text-align:left}
       </div>
       <div class="callouts">
         <div class="callout good"><div class="ic">&check;</div><div><h4>What we recommend</h4>Reduce the reserved capacity to 110 kVA. That is still a quarter to a third more than the busiest half-hour on record, and it lowers the daily capacity charge on every bill from then on. Confirm the busiest kVA figure on the invoices first, and allow for any heat pumps or car chargers you are planning: SSEN allows one reduction a year, and capacity given up can cost money to get back.</div></div>
-        <div class="callout"><div class="ic">i</div><div><h4>Why it matters later too</h4>Part of every bill is a fixed daily charge for the local and national network, set in four bands by connection size. Since April 2026 a 250 kVA connection normally sits in the second-highest band; your bill shows which. At 110 kVA the church would fall into a lower band when the bands are next reset, in April 2031.</div></div>
+        <div class="callout"><div class="ic">i</div><div><h4>Why it matters later too</h4>Part of every bill is a fixed daily charge for the local and national network, set in four bands by connection size. At exactly 250 kVA the church sits on the line between the top two bands, and British Gas&rsquo;s bills point to the top one. At 110 kVA it would drop to the second-lowest band when the bands are next reset, in April 2031.</div></div>
       </div>
     </section>
 
@@ -561,19 +582,19 @@ th:first-child,td:first-child{text-align:left}
   <section class="card sim" aria-labelledby="h-sim">
     <div class="kicker">June 2027 simulation</div>
     <h2 id="h-sim">Staying with British Gas vs moving to tem with RenewaBlox</h2>
-    <p class="lead">The first year of tem&rsquo;s contract, from 9 June 2027, on the church&rsquo;s own use &mdash; like for like: both at 110 kVA with the charity rate of VAT and no Climate Change Levy, and both prices carrying a 1p broker commission.</p>
+    <p class="lead">The year from 9 June 2027, when today&rsquo;s British Gas contract ends, on the church&rsquo;s own use &mdash; like for like: both at 110 kVA with the charity rate of VAT and no Climate Change Levy, and each with its broker&rsquo;s commission shown in the open.</p>
 
     <div class="sim-top">
       <div class="sim-card bg">
         <div class="sc-h"><span class="sc-name">Staying with British Gas</span></div>
-        <div class="sc-tags"><span>Today&rsquo;s contract prices</span><span>110 kVA</span><span>Charity VAT, no levy</span></div>
+        <div class="sc-tags"><span>Renewal prices</span><span>1p broker commission</span><span>110 kVA</span><span>Charity VAT, no levy</span></div>
         <div class="sc-total"><span id="bg-total"></span><small>a year</small></div>
         <div class="sc-month" id="bg-month"></div>
         <div class="sc-bar"><span id="bg-bar"></span></div>
       </div>
       <div class="sim-card tem">
         <div class="sc-h"><span class="sc-name"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>Moving to tem with RenewaBlox</span></div>
-        <div class="sc-tags"><span>RED + RED Plus</span><span>110 kVA</span><span>Charity VAT, no levy</span></div>
+        <div class="sc-tags"><span>RED + RED Plus</span><span>0.5p RenewaBlox commission</span><span>110 kVA</span><span>Charity VAT, no levy</span></div>
         <div class="sc-total"><span id="tem-total"></span><small>a year</small></div>
         <div class="sc-month" id="tem-month"></div>
         <div class="sc-bar"><span id="tem-bar"></span></div>
@@ -584,7 +605,14 @@ th:first-child,td:first-child{text-align:left}
       <div><div class="k">The difference</div><div class="ss-v"><span id="save-total"></span><small>a year less</small></div></div>
       <p id="save-sub"></p>
     </div>
+    <div class="term" id="term"></div>
     <p class="sim-ctx" id="sim-ctx"></p>
+
+    <h3 class="sim-h">Commission, in the open</h3>
+    <div class="comm">
+      <div class="comm-card bg"><div class="cc-who">British Gas renewal</div><div class="cc-v" id="comm-bg-v"></div><p id="comm-bg-p"></p></div>
+      <div class="comm-card tem"><div class="cc-who">tem with RenewaBlox</div><div class="cc-v" id="comm-tem-v"></div><p id="comm-tem-p"></p></div>
+    </div>
 
     <h3 class="sim-h">Line by line</h3>
     <div class="cmp-wrap"><table class="cmp" id="cmp">
@@ -1013,59 +1041,76 @@ function drawPie(){
 // 250 kVA, no charity relief. tem at its quote for 9 June 2027 to 8 June 2029 (RED day/night fixed),
 // 110 kVA, with the charity rate of VAT (5%; the 0% rate ends 31 March 2027) and no Climate Change Levy.
 (function buildSim(){
-  // Like for like: both sides at 110 kVA, the charity rate of VAT (5%; the 0% rate ends 31 March 2027) and no
-  // Climate Change Levy; both prices carry a 1p broker commission (British Gas's contract shows 1.00p for its
-  // broker; 1p is added to tem's quoted rates for RenewaBlox). The national network charge (TNUoS) is banded by
-  // the site's connection, not by the supplier, so it is the same band either way.
+  // Like for like, from 9 June 2027 when today's British Gas contract ends: both sides at 110 kVA, the charity rate
+  // of VAT (5%; the 0% rate ends 31 March 2027) and no Climate Change Levy. Each unit rate carries its broker's
+  // commission: British Gas's renewal includes 1.00p a kWh for its broker; 0.5p is added to tem's quoted rates for
+  // RenewaBlox. British Gas bills the national network charge (TNUoS) and the Nuclear RAB levy as separate lines on
+  // top of its prices, as it has since May 2026; tem passes the network charge through at cost and includes the
+  // RAB levy in its rates. The network charge belongs to the site's band, so it is the same figure on both sides.
   let night = 0, all = 0;
   for (let d = ND - 365; d < ND; d++) for (let p = 0; p < NP; p++) { const k = DATA.heat[d][p] / 20; all += k; if (p < 14) night += k; }
   const nk = Math.round(night / 100) * 100, tk = Math.round(all / 100) * 100, dk = tk - nk;
-  const VAT = 0.05, KVA = 110, COMMISSION = 1.0;
+  const VAT = 0.05, KVA = 110, BG_COMM = 1.0, TEM_COMM = 0.5, RAB = 0.46, TNUOS = 680.26;  // TNUoS in £/month, tem's forecast for the site
   const r10 = v => Math.round(v / 10) * 10, gbp = v => (v < 0 ? '−£' : '£') + fmt(Math.abs(v)), p2 = v => v.toFixed(2) + 'p';
-  const BG = {day:23.850, night:16.960, standing:2428.600, capacity:10.930};                       // p/kWh, p/day, p/kVA/day
-  const TEM = {day:23.2942 + COMMISSION, night:17.9212 + COMMISSION, redDay:1.464, redNight:1.099, standing:5.72, tnuos:680.26, capacity:3.87}; // standing, tnuos, capacity in £/month
+  const BG = {day:23.850, night:16.960, standing:2428.600, capacity:10.930};                        // p/kWh, p/day, p/kVA/day
+  const TEM = {day:23.2942 + TEM_COMM, night:17.9212 + TEM_COMM, redDay:1.464, redNight:1.099, standing:5.72, capacity:3.87}; // standing, capacity £/month
   const rows = [
-    {k:'Electricity in the day', sub:`${fmt(dk)} kWh, 7am to midnight`, bg:[dk * BG.day / 100, `${p2(BG.day)} a kWh, with its broker’s 1p`], tem:[dk * TEM.day / 100, `${p2(TEM.day)} a kWh, with RenewaBlox’s 1p`]},
-    {k:'Electricity at night', sub:`${fmt(nk)} kWh, midnight to 7am`, bg:[nk * BG.night / 100, `${p2(BG.night)} a kWh, with its broker’s 1p`], tem:[nk * TEM.night / 100, `${p2(TEM.night)} a kWh, with RenewaBlox’s 1p`]},
+    {k:'Electricity in the day', sub:`${fmt(dk)} kWh, 7am to midnight`, bg:[dk * BG.day / 100, `${p2(BG.day)} a kWh`], tem:[dk * TEM.day / 100, `${p2(TEM.day)} a kWh`]},
+    {k:'Electricity at night', sub:`${fmt(nk)} kWh, midnight to 7am`, bg:[nk * BG.night / 100, `${p2(BG.night)} a kWh`], tem:[nk * TEM.night / 100, `${p2(TEM.night)} a kWh`]},
+    {of:true, k:'of which, broker commission', sub:'Already in the unit rates above', bg:[tk * BG_COMM / 100, `${BG_COMM.toFixed(2)}p a kWh to Annex Solutions`], tem:[tk * TEM_COMM / 100, `${TEM_COMM.toFixed(1)}p a kWh to RenewaBlox`]},
     {k:'RED Plus benefit', sub:'tem’s exempt-supply benefit, off every unit', bg:[null, 'Not available'], tem:[-(dk * TEM.redDay + nk * TEM.redNight) / 100, `${TEM.redDay}p day, ${TEM.redNight}p night`]},
     {k:'Standing charge', bg:[BG.standing / 100 * 365, `£${(BG.standing / 100).toFixed(2)} a day`], tem:[TEM.standing * 12, `£${TEM.standing.toFixed(2)} a month`]},
-    {k:'National network charge', sub:'Set by the site’s band, the same either way', bg:[null, 'Inside the standing charge'], tem:[TEM.tnuos * 12, `£${fmt(Math.round(TEM.tnuos))} a month, at cost`]},
+    {k:'National network charge', sub:'Set by the site’s band: the same on both', bg:[TNUOS * 12, `£${fmt(Math.round(TNUOS))} a month, billed separately`], tem:[TNUOS * 12, `£${fmt(Math.round(TNUOS))} a month, at cost`]},
+    {k:'Nuclear RAB levy', sub:'A government levy on every unit', bg:[tk * RAB / 100, `${RAB}p a kWh, billed separately`], tem:[null, 'Inside tem’s unit rates']},
     {k:'Grid connection', sub:`${KVA} kVA on both`, bg:[KVA * BG.capacity / 100 * 365, `${BG.capacity.toFixed(2)}p a kVA a day`], tem:[KVA * TEM.capacity * 12, `£${TEM.capacity.toFixed(2)} a kVA a month`]},
     {k:'Climate Change Levy', sub:'A government tax on business energy', bg:[0, 'None on charity use'], tem:[0, 'None on charity use']},
   ];
   rows.forEach(r => ['bg', 'tem'].forEach(w => { if (r[w][0] !== null) r[w][0] = r10(r[w][0]); }));
-  const sum = w => rows.reduce((a, r) => a + (r[w][0] || 0), 0);
+  const R = k => rows.find(r => r.k === k);
+  const sum = w => rows.reduce((a, r) => a + (r.of ? 0 : (r[w][0] || 0)), 0);
   const bgSub = sum('bg'), temSub = sum('tem'), bgVat = r10(bgSub * VAT), temVat = r10(temSub * VAT);
   rows.push({k:'VAT', bg:[bgVat, '5%, the charity rate'], tem:[temVat, '5%, the charity rate']});
   const bgTot = bgSub + bgVat, temTot = temSub + temVat, save = bgTot - temTot;
   const cell = (w, r, other) => {
-    const [v, note] = r[w], cls = w === 'tem' && v !== null && (v < 0 || (other !== null && v < other)) ? 'less' : '';
+    const [v, note] = r[w], cls = !r.of && w === 'tem' && v !== null && (v < 0 || (other !== null && v < other)) ? 'less' : '';
     return `<td class="c-${w}" data-who="${w === 'bg' ? 'British Gas' : 'tem'}"><b class="${cls}">${v === null ? '—' : gbp(v)}</b><small>${note}</small></td>`;
   };
-  $('#cmp tbody').innerHTML = rows.map(r => `<tr><th scope="row">${r.k}${r.sub ? `<small>${r.sub}</small>` : ''}</th>${cell('bg', r, r.tem[0])}${cell('tem', r, r.bg[0])}</tr>`).join('');
+  $('#cmp tbody').innerHTML = rows.map(r => `<tr${r.of ? ' class="of"' : ''}><th scope="row">${r.k}${r.sub ? `<small>${r.sub}</small>` : ''}</th>${cell('bg', r, r.tem[0])}${cell('tem', r, r.bg[0])}</tr>`).join('');
   $('#cmp tfoot').innerHTML = `<tr><th scope="row">Total a year</th><td class="c-bg" data-who="British Gas"><b>${gbp(bgTot)}</b><small>about ${gbp(r10(bgTot / 12))} a month</small></td><td class="c-tem" data-who="tem"><b>${gbp(temTot)}</b><small>about ${gbp(r10(temTot / 12))} a month</small></td></tr>`;
   $('#bg-total').textContent = gbp(bgTot); $('#tem-total').textContent = gbp(temTot);
   $('#bg-month').textContent = `About ${gbp(r10(bgTot / 12))} a month, VAT included`;
   $('#tem-month').textContent = `About ${gbp(r10(temTot / 12))} a month, VAT included`;
   $('#bg-bar').style.width = '100%'; $('#tem-bar').style.width = (temTot / bgTot * 100).toFixed(1) + '%';
   $('#save-total').textContent = gbp(save);
-  $('#save-sub').innerHTML = `<b>${(save / bgTot * 100).toFixed(1)}% less</b> than staying with British Gas, like for like: about ${gbp(r10(save / 12))} a month.`;
-  // the same changes are worth far more than the switch: what staying put would cost without them
-  const asIs = r10((rows[0].bg[0] + rows[1].bg[0] + rows[3].bg[0] + r10(250 * BG.capacity / 100 * 365) + r10(tk * 0.801 / 100)) * 1.2);
-  $('#sim-ctx').innerHTML = `<span>Both sides already include the changes RenewaBlox would make: the charity rate of VAT, no levy and the 110 kVA connection. Without them &mdash; 250 kVA, 20% VAT and the levy &mdash; staying with British Gas would cost about <b>${gbp(asIs)}</b> a year, so the changes are worth about <b>${gbp(asIs - bgTot)}</b> a year whichever supplier the church is with.</span>`;
+  $('#save-sub').innerHTML = `<b>${Math.round(save / bgTot * 100)}% less</b> than staying with British Gas, like for like: about ${gbp(r10(save / 12))} a month.`;
+  // the longer the contract, the more it saves
+  $('#term').innerHTML = `<div class="term-card"><div class="tk">2-year contract, as quoted</div><div class="tv">${gbp(save * 2)}<small>saved</small></div><p>9 June 2027 to 8 June 2029.</p></div>
+    <div class="term-card best"><span class="badge">More savings</span><div class="tk">3-year contract</div><div class="tv">${gbp(save * 3)}<small>saved</small></div><p>Another ${gbp(save)} on top, if tem fixes the same prices for a third year.</p></div>`;
+  // the changes are worth far more than the switch: what staying put would cost without them
+  const asIs = r10((R('Electricity in the day').bg[0] + R('Electricity at night').bg[0] + R('Standing charge').bg[0] + R('National network charge').bg[0] + R('Nuclear RAB levy').bg[0]
+    + r10(250 * BG.capacity / 100 * 365) + r10(tk * 0.801 / 100)) * 1.2);
+  $('#sim-ctx').innerHTML = `<span>Both sides include the changes RenewaBlox would make: the charity rate of VAT, no levy and the 110 kVA connection. Without them &mdash; 250 kVA, 20% VAT and the levy &mdash; renewing with British Gas would cost about <b>${gbp(asIs)}</b> a year. Over the last 12 months the church paid British Gas <b>£73,764</b>.</span>`;
+  // commission, side by side
+  const cBg = R('of which, broker commission').bg[0], cTem = R('of which, broker commission').tem[0];
+  $('#comm-bg-v').innerHTML = `${BG_COMM.toFixed(2)}p a kWh<small>about ${gbp(cBg)} a year</small>`;
+  $('#comm-bg-p').innerHTML = `To the broker Annex Solutions, built into British Gas&rsquo;s unit rates. British Gas puts it at £3,538.54 over its 2-year contract.`;
+  $('#comm-tem-v').innerHTML = `${TEM_COMM.toFixed(1)}p a kWh<small>about ${gbp(cTem)} a year</small>`;
+  $('#comm-tem-p').innerHTML = `To RenewaBlox, built into tem&rsquo;s unit rates above &mdash; half the British Gas broker&rsquo;s rate, and every figure here includes it.`;
   // where the difference comes from, line by line (negative: cheaper with tem)
+  const d = k => (R(k).tem[0] || 0) - (R(k).bg[0] || 0);
   const DIF = [
-    {k:'RED Plus benefit', d:'tem’s exempt-supply benefit off every unit.', v:rows[2].tem[0]},
-    {k:'Standing and network charges', d:'£5.72 a month plus the network charge at cost, against £24.29 a day.', v:rows[3].tem[0] + rows[4].tem[0] - rows[3].bg[0]},
-    {k:'Unit rates, each with 1p commission', d:'tem’s rates with RenewaBlox’s 1p, against British Gas’s with its broker’s 1p.', v:rows[0].tem[0] + rows[1].tem[0] - rows[0].bg[0] - rows[1].bg[0]},
-    {k:'Capacity rate', d:'£3.87 a kVA a month, against 10.93p a kVA a day (about £3.32 a month).', v:rows[5].tem[0] - rows[5].bg[0]},
+    {k:'Standing charge', d:'£5.72 a month, against £24.29 a day.', v:d('Standing charge')},
+    {k:'RED Plus benefit', d:'tem’s exempt-supply benefit off every unit.', v:d('RED Plus benefit')},
+    {k:'Nuclear RAB levy', d:'Inside tem’s rates; billed on top by British Gas.', v:d('Nuclear RAB levy')},
+    {k:'Unit rates, each with its commission', d:'tem’s rates with 0.5p, against British Gas’s with 1p.', v:d('Electricity in the day') + d('Electricity at night')},
+    {k:'Capacity rate', d:'£3.87 a kVA a month, against 10.93p a kVA a day (about £3.32 a month).', v:d('Grid connection')},
     {k:'VAT on the difference', d:'5% on both.', v:temVat - bgVat},
   ].sort((a, b) => a.v - b.v);
   const mx = Math.max(...DIF.map(o => Math.abs(o.v)));
-  const bar = v => { const w = Math.abs(v) / mx * 50; return `<div class="dif-bar"><span style="${v < 0 ? `right:50%;width:${w}%;background:var(--good)` : `left:50%;width:${w}%;background:var(--warn)`}"></span></div>`; };
+  const bar = v => { const w = Math.min(50, Math.abs(v) / mx * 50); return `<div class="dif-bar"><span style="${v < 0 ? `right:50%;width:${w}%;background:var(--good)` : `left:50%;width:${w}%;background:var(--warn)`}"></span></div>`; };
   $('#dif').innerHTML = DIF.map(o => `<div class="dif-row"><div><h4>${o.k}</h4><p>${o.d}</p></div>${bar(o.v)}<div class="dif-v ${o.v < 0 ? 'cheap' : 'dear'}">${o.v < 0 ? '−' : '+'}£${fmt(Math.abs(o.v))}<small>${o.v < 0 ? 'cheaper with tem' : 'dearer with tem'}</small></div></div>`).join('')
     + `<div class="dif-row net"><div><h4>Net, a year</h4><p>Adds up to the difference above.</p></div>${bar(-save)}<div class="dif-v ${save > 0 ? 'cheap' : 'dear'}">${save > 0 ? '−' : '+'}£${fmt(Math.abs(save))}<small>${save > 0 ? 'cheaper with tem' : 'dearer with tem'}</small></div></div>`;
-  $('#sim-note').innerHTML = `Both bills use the last 12 months of meter readings: ${fmt(tk)} kWh, ${Math.round(nk / tk * 100)}% of it between midnight and 7am. British Gas at the prices on today&rsquo;s contract, which already include a 1.00p broker uplift and, we take it, the 7% Direct Debit discount, carried on past June 2027; its standing charge is taken to include the national network charge. tem at its quote for 9 June 2027 to 8 June 2029 (RED day/night fixed) with 1p a kWh added to both rates for RenewaBlox, and the national network charge at tem&rsquo;s forecast, passed through at cost. The network charge is banded by the site&rsquo;s connection, not the supplier, and bands are fixed until 31 March 2031, so it is the same band either way. Meter and reactive power charges, passed through at cost, are left out of both.`;
+  $('#sim-note').innerHTML = `Both bills use the last 12 months of meter readings: ${fmt(tk)} kWh, ${Math.round(nk / tk * 100)}% of it between midnight and 7am, British Gas&rsquo;s night hours too. British Gas at its renewal prices, which include a 1.00p broker uplift and, we take it, the 7% Direct Debit discount. Its bills since May 2026 add the national network charge (TNUoS RIIO-3, £10.85 a day) and the Nuclear RAB levy (0.46p a kWh) on top of the contract prices, and its renewal standing charge, £24.29 a day against today&rsquo;s £39.97, is too low to include the network charge, so both are added here. tem at its quote for 9 June 2027 to 8 June 2029 (RED day/night fixed) with 0.5p a kWh added to both rates for RenewaBlox. The network charge is the same figure on both sides at tem&rsquo;s forecast for the site; it is set by the site&rsquo;s band, not the supplier, and if the site is confirmed in the top band both totals rise by the same amount. Meter and reactive power charges, passed through at cost, are left out of both. Savings over a contract assume today&rsquo;s use each year.`;
 })();
 
 /* ---------- tabs ---------- */
