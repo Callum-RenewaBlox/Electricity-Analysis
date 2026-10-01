@@ -364,7 +364,7 @@ th:first-child,td:first-child{text-align:left}
     <div class="pie-grid">
       <div class="pie-col">
         <div class="pie-cta" id="pie-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10.5V9a1.5 1.5 0 0 1 3 0v2"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.9-2.5L4.2 15a1.6 1.6 0 0 1 2.5-2l2.3 2.3V11"/></svg><span id="pie-cta-t">Hover over a slice to see what&rsquo;s inside it</span></div>
-        <div class="chart" id="pie" role="img" aria-label="Pie chart of the last 12 months of electricity: about 21% business use (the caf&eacute; about 12%, room hire about 9%) and about 79% charity use. The sections and their breakdowns are listed beside the chart."></div>
+        <div class="chart" id="pie" role="img" aria-label="Pie chart of the last 12 months of electricity: about 21% business use (the caf&eacute; about 12%, room hire about 9%) and about 79% charity use (always on about 38%, weekday church activities about 25%, everything else about 16%). The sections and their breakdowns are listed beside the chart."></div>
       </div>
       <div class="pie-side">
         <div class="grp" data-g="biz"><div class="gh"><i class="sw biz"></i><span>Business use</span><b>~21%</b></div><ul class="rows-p" id="list-biz"></ul></div>
@@ -799,18 +799,18 @@ const SLICES = [
    parts:[['Through the day, 7am to 10pm', 39700], ['Overnight, 10pm to 7am, building empty', 21200]]},
   {g:'char', k:'Weekday church activities', short:'Weekday activities', kwh:39500, d:'Church offices and staff, the Community Hub and foodbank, groups and daytime heating, 8am to 5pm.',
    parts:[['March to October (8 months)', 22800], ['November to February (4 months)', 16700]]},
-  {g:'char', k:'Sunday services', kwh:12200, d:'Services at 9am and 11am, kids’ and youth groups, welcome lunches, courses and monthly Prayer & Praise.',
-   parts:[['Mornings, to 2pm', 9000], ['Afternoons and evenings', 3200]]},
-  {g:'char', k:'Weekday evenings', kwh:7400, d:'Alpha and courses on Thursdays, youth hangouts on Fridays, and Tuesday evenings.',
-   parts:[['Thursdays: Alpha and courses', 2900], ['Fridays: youth hangouts', 2100], ['Tuesdays', 2000], ['Mondays and Wednesdays, late', 400]]},
-  {g:'char', k:'Saturdays', kwh:1700, d:'Occasional church events: men’s breakfast, cinema and the Christmas quiz.',
-   n:'Most Saturday use, about 5,100 kWh, is hire and sits under room hire.',
-   parts:[['Church events', 1700]]},
-  {g:'char', k:'Early mornings', kwh:5200, d:'Heating and lights coming on before 8am on weekdays.',
-   parts:[['March to October', 3300], ['November to February', 1900]]},
+  {g:'char', k:'Everything else', kwh:26500, d:'The rest of the church’s week: Sundays, weekday evenings, early mornings and Saturday events.',
+   n:'Saturday hire, about 5,100 kWh, sits under room hire.',
+   parts:[['Sunday services, groups and lunches', 12200], ['Weekday evenings: Alpha, youth, courses', 7400], ['Early mornings, as the heating comes on', 5200], ['Saturday church events', 1700]]},
 ];
 const PIE_SUM = SLICES.reduce((a, o) => a + o.kwh, 0);
-const pctTxt = o => { const p = o.kwh / PIE_SUM * 100; return '~' + (p < 1 ? p.toFixed(1) : Math.round(p)) + '%'; };
+['biz', 'char'].forEach(g => {
+  const grp = SLICES.filter(o => o.g === g), exact = grp.map(o => o.kwh / PIE_SUM * 100);
+  let left = Math.round(exact.reduce((a, v) => a + v, 0)) - exact.reduce((a, v) => a + Math.floor(v), 0);
+  grp.forEach((o, k) => o.pct = Math.floor(exact[k]));
+  grp.map((o, k) => [exact[k] % 1, o]).sort((p, q) => q[0] - p[0]).forEach(([, o]) => { if (left > 0) { o.pct++; left--; } });
+});
+const pctTxt = o => '~' + o.pct + '%';
 const kwhTxt = v => '~' + fmt(v) + ' kWh';
 const groupName = g => g === 'biz' ? 'Business use' : 'Charity use';
 const CTA_HTML = `<div class="bd-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10.5V9a1.5 1.5 0 0 1 3 0v2"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.9-2.5L4.2 15a1.6 1.6 0 0 1 2.5-2l2.3 2.3V11"/></svg><span><b>${matchMedia('(hover: none)').matches ? 'Tap' : 'Hover over'} any slice</b> to see what&rsquo;s inside it: the parts it is made of and how much each uses in a year.</span></div>`;

@@ -12,10 +12,11 @@ energy people.
 The page opens on a chart, not a wall of text, and splits into three tabs:
 
 1. **Charity consumption** (opens first) — a large donut of the last 12
-   months' electricity in eight sections, business use in amber (the café,
+   months' electricity in five sections, business use in amber (the café,
    room hire) and charity use in petrol (always on, weekday church
-   activities, Sunday services, weekday evenings, Saturdays, early mornings),
-   each labelled with its central estimate, marked `~`. A prompt above the
+   activities, and everything else: Sundays, weekday evenings, early mornings
+   and Saturday church events), each labelled with its central estimate,
+   marked `~` and rounded so the sections add up to their group's share. A prompt above the
    chart invites a hover (a tap on a phone): the section lifts out, lights up
    and splits into its parts, and the card beside the chart lists each part's
    kWh. A bar underneath sets the ~79% charity share against the 60% line at
