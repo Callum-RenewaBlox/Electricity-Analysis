@@ -12,12 +12,15 @@ energy people.
 The page opens on a chart, not a wall of text, and splits into three tabs:
 
 1. **Charity consumption** (opens first) — a large donut of the last 12
-   months' electricity, business use in amber and charity use in petrol, each
-   slice labelled with its share (central estimates, marked `~`). Hovering or
-   tapping a slice lifts it out and lights it up while the rest dim; the
-   centre and the list beside the chart follow it. A bar underneath sets the
-   ~88% charity share against the 60% line at which the whole supply gets the
-   charity rate of VAT and no Climate Change Levy.
+   months' electricity in eight sections, business use in amber (the café,
+   room hire) and charity use in petrol (always on, weekday church
+   activities, Sunday services, weekday evenings, Saturdays, early mornings),
+   each labelled with its central estimate, marked `~`. A prompt above the
+   chart invites a hover (a tap on a phone): the section lifts out, lights up
+   and splits into its parts, and the card beside the chart lists each part's
+   kWh. A bar underneath sets the ~79% charity share against the 60% line at
+   which the whole supply gets the charity rate of VAT and no Climate Change
+   Levy.
 2. **Electricity portrait** — the findings in full: the year at a glance, then
    the whole year in one half-hourly heat map (numbered markers, Christmas and Easter flagged), a winter and a summer
    week, where the electricity goes, the months against last year, and the
@@ -49,15 +52,23 @@ requests, so edit it directly:
   computed from `heat` over the 365 days to 28 September 2026: each day's
   always-on level is its average from 1am to 5am, and anything above it is
   counted against the time of week it was used.
-* **Charity consumption.** Business use is the café, estimated from its
-  opening hours (Monday to Friday 8.30am to 3pm, Sundays 10am to 2pm) at the
-  middle of each range: about 4 kW while open (6,600 kWh on weekdays, 800 on
-  Sundays), fridges and chillers at about 1.1 kW around the clock (9,900) and
-  heating the café area on winter weekdays (2,000) — ~19,300 kWh, ~12% of the
-  year. Each part is taken out of the matching part of the split (the fridges
-  from the always-on use, the rest from the times the café is open), and
-  everything left is charity use. Paid room hire would also be business use
-  and is not in the estimate; the church's VAT adviser confirms the share.
+* **Charity consumption.** Business use is the café and room hire by
+  Citygate Events (central estimates, kWh a year):
+  * the café (19,300), from its opening hours (Monday to Friday 8.30am to 3pm,
+    Sundays 10am to 2pm) at the middle of each range: fridges and chillers at
+    about 1.1 kW around the clock (9,900), about 4 kW while open (6,600 on
+    weekdays, 800 on Sundays) and heating the café on winter weekdays (2,000);
+  * room hire (15,300), from the meter: Monday and Wednesday evenings, which
+    have no church activity, plus a fifth of the church evenings (4,900);
+    three quarters of Saturday use above the always-on level (5,100); two
+    weeks of large events, 17–22 November 2025 and 5–10 January 2026 (2,500);
+    and regular weekday bookings, the middle of 0–5,500 (2,800).
+  Each part is taken out of the matching part of the split, and what is left is
+  charity use — ~79% in all, against a range of about 73–85%. The charity
+  sections' breakdowns come straight from the meter (overnight against
+  daytime, winter against the rest of the year, the evening of the week).
+  The Citygate Events booking diary and a month on a café sub-meter would firm
+  the estimate up; the church's VAT adviser confirms the share.
 * **Colour.** Winter `#21709b` and summer `#d4721a` were checked as a pair for
   colour-blind separation and contrast on white; the heat map uses a single
   petrol ramp from light to dark.

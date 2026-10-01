@@ -196,12 +196,22 @@ th,td{padding:7px 14px;text-align:right;border-top:1px solid var(--line-2);white
 th{background:var(--tint-2);font-size:12px;font-weight:700;color:var(--ink-2);border-top:0}
 th:first-child,td:first-child{text-align:left}
 /* charity consumption */
-.pie-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px 28px;align-items:center;margin-top:14px}
+.pie-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px 28px;align-items:start;margin-top:18px}
+.pie-col{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.pie-col #pie{align-self:stretch}
+.pie-cta{display:inline-flex;align-items:center;gap:9px;padding:9px 16px 9px 12px;border-radius:999px;background:var(--brand);color:#fff;
+  font-size:13.5px;font-weight:700;box-shadow:0 6px 18px rgba(18,71,94,.28);animation:nudge 2.4s ease-in-out infinite}
+.pie-cta svg{width:20px;height:20px;flex:none}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.pie-cta.quiet{animation:none;background:var(--tint-2);color:var(--brand);box-shadow:none}
 #pie svg{display:block;overflow:visible;margin:0 auto;touch-action:manipulation}
 .sl{cursor:pointer;outline:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s}
 .sl path{transition:filter .2s}
 .sl.dim{opacity:.3}
-.sl.on path{filter:brightness(1.14) saturate(1.2) drop-shadow(0 0 12px var(--glow))}
+.sl.on .main{filter:brightness(1.12) saturate(1.2) drop-shadow(0 0 14px var(--glow))}
+.sl .part{opacity:0;transition:opacity .25s;pointer-events:none}
+.sl.on .part{opacity:1;pointer-events:auto}
+.sl .part.hot{filter:brightness(1.12)}
 .lab{cursor:pointer;transition:opacity .2s}
 .lab.dim{opacity:.3}
 .lab.on .pl-name{fill:var(--ink);font-weight:700}
@@ -211,6 +221,7 @@ th:first-child,td:first-child{text-align:left}
 .pc-v{fill:var(--brand);font-weight:800;letter-spacing:-.03em}
 .pc-s{fill:var(--muted);font-size:12.5px}
 .pc-s2{fill:var(--muted);font-size:12px}
+.pie-side{display:flex;flex-direction:column;min-width:0}
 .pie-side .grp{border:1px solid var(--line);border-radius:16px;padding:12px 12px 8px;margin-bottom:12px;background:#fff}
 .gh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:10px;align-items:center;padding:0 6px 8px;font-size:13px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--line-2)}
 .gh b{font-size:18px;font-weight:800;color:var(--brand)}
@@ -223,8 +234,21 @@ th:first-child,td:first-child{text-align:left}
 .rows-p li b{font-weight:750;color:var(--ink);font-variant-numeric:tabular-nums}
 .rows-p li.on{background:var(--tint-2);color:var(--ink)}
 .rows-p li.dim{opacity:.5}
-.pie-detail{font-size:13px;line-height:1.55;color:var(--ink-2);min-height:4.7em;padding:2px 6px}
-.pie-detail b{color:var(--ink)}
+.bd{border-radius:16px;padding:14px 14px 12px;background:var(--tint);border:1px solid var(--line-2);min-height:150px}
+.bd-cta{display:flex;gap:12px;align-items:center;color:var(--ink-2);font-size:13.5px;line-height:1.5;min-height:120px}
+.bd-cta svg{width:30px;height:30px;flex:none;color:var(--accent)}
+.bd-h{display:grid;grid-template-columns:14px minmax(0,1fr);gap:4px 10px;align-items:center}
+.bd-h .nm{font-size:15px;font-weight:800;color:var(--ink)}
+.bd-h .fg{grid-column:2;font-size:12.5px;color:var(--muted)}
+.bd-d{margin-top:8px;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.bd-parts{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:7px}
+.bd-parts li{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:3px 9px;align-items:center;font-size:12.5px;color:var(--ink-2);border-radius:8px;padding:3px 4px;transition:background .15s}
+.bd-parts li i{width:10px;height:10px;border-radius:3px}
+.bd-parts li b{font-weight:750;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bd-parts li em{grid-column:2 / -1;height:5px;border-radius:3px;background:var(--line);overflow:hidden;position:relative}
+.bd-parts li em span{position:absolute;inset:0 auto 0 0;border-radius:3px}
+.bd-parts li.hot{background:#fff}
+.bd-n{margin-top:9px;font-size:11.5px;line-height:1.5;color:var(--muted)}
 .line60{margin-top:22px;background:var(--tint);border:1px solid var(--line-2);border-radius:16px;padding:16px 18px 34px}
 .l60-head{font-size:14px;line-height:1.55;color:var(--ink-2)}
 .l60-head b{color:var(--good)}
@@ -254,6 +278,7 @@ th:first-child,td:first-child{text-align:left}
 .tip .m{color:rgba(226,237,242,.7)}
 @media (max-width:860px){
   .pie-grid{grid-template-columns:minmax(0,1fr)}
+  .pie-side .bd{order:-1;margin-bottom:12px}
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .points{grid-template-columns:1fr}
   .split-list{grid-template-columns:1fr 1fr}
@@ -287,7 +312,7 @@ th:first-child,td:first-child{text-align:left}
   .split-list{grid-template-columns:1fr}
   header .right .lbl{display:none}
 }
-@media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} .pie-cta{animation:none} }
 @media print{
   @page{size:A4;margin:12mm}
   html,body{background:#fff}
@@ -334,21 +359,24 @@ th:first-child,td:first-child{text-align:left}
 <div class="wrap1">
   <section class="card charity" aria-labelledby="h-charity">
     <div class="kicker">Charity consumption &middot; the last 12 months</div>
-    <h2 id="h-charity">Around 88% of your electricity is charity use</h2>
-    <p class="lead">Only the caf&eacute; counts as business use. Everything else &mdash; worship, groups, offices and keeping the building running &mdash; is the church&rsquo;s charitable work.</p>
+    <h2 id="h-charity">Around 79% of your electricity is charity use</h2>
+    <p class="lead">The caf&eacute; and room hire are business use. Everything else &mdash; worship, groups, the foodbank, offices and keeping the building running &mdash; is the church&rsquo;s charitable work.</p>
     <div class="pie-grid">
-      <div class="chart" id="pie" role="img" aria-label="Pie chart of the last 12 months of electricity: about 12% business use by the caf&eacute; and about 88% charity use. The slices are listed beside the chart."></div>
+      <div class="pie-col">
+        <div class="pie-cta" id="pie-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10.5V9a1.5 1.5 0 0 1 3 0v2"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.9-2.5L4.2 15a1.6 1.6 0 0 1 2.5-2l2.3 2.3V11"/></svg><span id="pie-cta-t">Hover over a slice to see what&rsquo;s inside it</span></div>
+        <div class="chart" id="pie" role="img" aria-label="Pie chart of the last 12 months of electricity: about 21% business use (the caf&eacute; about 12%, room hire about 9%) and about 79% charity use. The sections and their breakdowns are listed beside the chart."></div>
+      </div>
       <div class="pie-side">
-        <div class="grp" data-g="biz"><div class="gh"><i class="sw biz"></i><span>Business use &middot; the caf&eacute;</span><b>~12%</b></div><ul class="rows-p" id="list-biz"></ul></div>
-        <div class="grp" data-g="char"><div class="gh"><i class="sw char"></i><span>Charity use</span><b>~88%</b></div><ul class="rows-p" id="list-char"></ul></div>
-        <p class="pie-detail" id="pie-detail" aria-live="polite">Hover over or tap a slice to see what it is.</p>
+        <div class="grp" data-g="biz"><div class="gh"><i class="sw biz"></i><span>Business use</span><b>~21%</b></div><ul class="rows-p" id="list-biz"></ul></div>
+        <div class="grp" data-g="char"><div class="gh"><i class="sw char"></i><span>Charity use</span><b>~79%</b></div><ul class="rows-p" id="list-char"></ul></div>
+        <div class="bd" id="pie-bd" aria-live="polite"></div>
       </div>
     </div>
-    <div class="line60" role="img" aria-label="Charity use about 88%, above the 60% line">
+    <div class="line60" role="img" aria-label="Charity use about 79%, above the 60% line">
       <div class="l60-head"><b>Comfortably over the 60% line.</b> Once charity use passes 60%, the whole supply can have the charity rate of VAT and no Climate Change Levy.</div>
-      <div class="l60-bar"><div class="l60-char" style="flex:88"><span>~88% charity use</span></div><div class="l60-biz" style="flex:12"><span>~12%</span></div><div class="l60-mark" style="left:60%"><span>60%</span></div></div>
+      <div class="l60-bar"><div class="l60-char" style="flex:79"><span>~79% charity use</span></div><div class="l60-biz" style="flex:21"><span>~21% business</span></div><div class="l60-mark" style="left:60%"><span>60%</span></div></div>
     </div>
-    <p class="note-ill">Caf&eacute; estimate from its opening hours (Monday to Friday 8.30am to 3pm, Sundays 10am to 2pm): about 4 kW while open, fridges and chillers around the clock and heating the caf&eacute; in winter, ~19,300 kWh a year. Paid room hire would also count as business use; your VAT adviser confirms the final share.</p>
+    <p class="note-ill">Central estimates. The caf&eacute; is estimated from its opening hours; room hire from the meter &mdash; evenings with no church activity, most of Saturday, and two weeks of large events. The Citygate Events booking diary and a month on a caf&eacute; sub-meter would firm both up, and your VAT adviser confirms the final share.</p>
     <div class="next"><button type="button" class="go" data-go="portrait">See the electricity portrait <span aria-hidden="true">&rarr;</span></button></div>
   </section>
 </div>
@@ -473,7 +501,7 @@ th:first-child,td:first-child{text-align:left}
     <h2 id="h-savings">Four ways the data points to lower bills</h2>
     <p class="lead">What each could be worth in a year, in a sensible order to take them in.</p>
     <ol class="steps">
-      <li><div class="n">1</div><div><h4>Tell the supplier about your charity use</h4><p>With charity use around 88%, over the 60% line, one declaration to British Gas puts the whole supply on the charity rate of VAT &mdash; 0% until 31 March 2027, then 5% instead of 20% &mdash; with no Climate Change Levy. Your VAT adviser confirms the share first. Ask too for any VAT and levy overpaid in the last four years.</p></div><div class="sv"><div class="v">£8,000&ndash;£10,000</div><small>a year</small><span class="tag now">Ready now</span></div></li>
+      <li><div class="n">1</div><div><h4>Tell the supplier about your charity use</h4><p>With charity use around 79%, comfortably over the 60% line, one declaration to British Gas puts the whole supply on the charity rate of VAT &mdash; 0% until 31 March 2027, then 5% instead of 20% &mdash; with no Climate Change Levy. Your VAT adviser confirms the share first. Ask too for any VAT and levy overpaid in the last four years.</p></div><div class="sv"><div class="v">£8,000&ndash;£10,000</div><small>a year</small><span class="tag now">Ready now</span></div></li>
       <li><div class="n">2</div><div><h4>Reduce the grid connection to 110 kVA</h4><p>An application to SSEN, the network operator; the daily capacity charge then falls on every bill. Confirm the busiest kVA figure on the invoices first and allow for any heat pumps or car chargers: reductions are allowed once a year, and capacity given up can cost money to get back.</p></div><div class="sv"><div class="v">£3,300&ndash;£6,500</div><small>a year</small><span class="tag now">Ready now</span></div></li>
       <li><div class="n">3</div><div><h4>Walk the building one evening</h4><p>After everyone has gone home, note what is still running: fridges, urns and water heaters, IT, heating controls and outside lights. Two timers to ask about: an extra load from 2am to 4am on most Sundays, and heating that ran all day on Boxing Day.</p></div><div class="sv"><div class="v">£3,800</div><small>a year per 2 kW switched off</small><span class="tag walk">Needs a walk-round</span></div></li>
       <li class="later"><div class="n">4</div><div><h4>Check the network band</h4><p>Your bill shows the band today. With the smaller connection in place, the band can drop when bands are next reset, in April 2031: up to £12,000 a year from the top band, nearer £1,000 from the band below.</p></div><div class="sv"><div class="v">£1,000&ndash;£12,000</div><small>a year</small><span class="tag later">From 2031</span></div></li>
@@ -754,28 +782,49 @@ function drawCap(){
 }
 
 /* ---------- tab 1: charity consumption ---------- */
-// Business use is the café, estimated from its opening hours (central estimates);
-// every other part of the year's use is the church's charitable activity.
+// Eight sections at a glance; hovering one splits it into its parts. Business use is the café
+// (from its opening hours) and room hire (from the meter: evenings with no church activity,
+// most of Saturday and two weeks of large events). Central estimates, kWh over the year.
 const BIZ = '#d4721a', CHAR = '#21709b';
+const SHADES = {biz:['#9a4f0b', '#d4721a', '#eb9a52', '#f5c391'], char:['#123f56', '#21709b', '#5d9fc3', '#a6cbe0']};
 const SLICES = [
-  {g:'biz', k:'Café fridges and chillers', short:'Café fridges', kwh:9900, d:'Running around the clock, about 1.1 kW.'},
-  {g:'biz', k:'Café opening hours', short:'Café open hours', kwh:6600, d:'Weekdays 8.30am to 3pm, about 4 kW: coffee machine, ovens and lights.'},
-  {g:'biz', k:'Café winter heating', short:'Café heating', kwh:2000, d:'Heating the café area on winter weekdays.'},
-  {g:'biz', k:'Café on Sundays', short:'Café Sundays', kwh:800, d:'Sundays 10am to 2pm, about 4 kW.'},
-  {g:'char', k:'Always on', short:'Always on', kwh:60900, d:'The building’s overnight level, day and night: heating on standby, IT, water heating and lighting.'},
-  {g:'char', k:'Weekday church activities', short:'Weekday activities', kwh:44800, d:'Offices, staff, groups and daytime heating, 8am to 5pm on weekdays.'},
-  {g:'char', k:'Sunday services', short:'Sunday services', kwh:12600, d:'Services and Sunday activities, on top of the always-on use.'},
-  {g:'char', k:'Weekday evenings', short:'Weekday evenings', kwh:11900, d:'Evening groups and meetings.'},
-  {g:'char', k:'Saturdays', short:'Saturdays', kwh:6900, d:'Weekend events and activities.'},
-  {g:'char', k:'Early mornings', short:'Early mornings', kwh:5200, d:'Heating and lights coming on before 8am on weekdays.'},
+  {g:'biz', k:'Café', kwh:19300, d:'Citygate Events’ café: weekdays 8.30am to 3pm and Sundays 10am to 2pm.',
+   n:'Estimated from its opening hours; a month on a sub-meter would confirm it.',
+   parts:[['Fridges and chillers, around the clock', 9900], ['Weekday opening hours', 6600], ['Heating the café in winter', 2000], ['Sundays, 10am to 2pm', 800]]},
+  {g:'biz', k:'Room hire', kwh:15300, d:'Citygate Events hires out the halls and meeting rooms: exhibitions, exam halls, rehearsals, conferences and training.',
+   n:'Estimated from the meter; the booking diary would confirm it.',
+   parts:[['Saturday hire', 5100], ['Evening hire', 4900], ['Regular weekday bookings', 2800], ['Large events, 17–22 Nov and 5–10 Jan', 2500]]},
+  {g:'char', k:'Always on', kwh:60900, d:'What the building draws with nobody in, day and night: heating on standby, IT, water heating and lighting.',
+   n:'The café’s fridges are counted under the café.',
+   parts:[['Through the day, 7am to 10pm', 39700], ['Overnight, 10pm to 7am, building empty', 21200]]},
+  {g:'char', k:'Weekday church activities', short:'Weekday activities', kwh:39500, d:'Church offices and staff, the Community Hub and foodbank, groups and daytime heating, 8am to 5pm.',
+   parts:[['March to October (8 months)', 22800], ['November to February (4 months)', 16700]]},
+  {g:'char', k:'Sunday services', kwh:12200, d:'Services at 9am and 11am, kids’ and youth groups, welcome lunches, courses and monthly Prayer & Praise.',
+   parts:[['Mornings, to 2pm', 9000], ['Afternoons and evenings', 3200]]},
+  {g:'char', k:'Weekday evenings', kwh:7400, d:'Alpha and courses on Thursdays, youth hangouts on Fridays, and Tuesday evenings.',
+   parts:[['Thursdays: Alpha and courses', 2900], ['Fridays: youth hangouts', 2100], ['Tuesdays', 2000], ['Mondays and Wednesdays, late', 400]]},
+  {g:'char', k:'Saturdays', kwh:1700, d:'Occasional church events: men’s breakfast, cinema and the Christmas quiz.',
+   n:'Most Saturday use, about 5,100 kWh, is hire and sits under room hire.',
+   parts:[['Church events', 1700]]},
+  {g:'char', k:'Early mornings', kwh:5200, d:'Heating and lights coming on before 8am on weekdays.',
+   parts:[['March to October', 3300], ['November to February', 1900]]},
 ];
 const PIE_SUM = SLICES.reduce((a, o) => a + o.kwh, 0);
 const pctTxt = o => { const p = o.kwh / PIE_SUM * 100; return '~' + (p < 1 ? p.toFixed(1) : Math.round(p)) + '%'; };
-const kwhTxt = o => '~' + fmt(o.kwh) + ' kWh a year';
-const groupName = g => g === 'biz' ? 'Business use · the café' : 'Charity use';
-let pieActive = -1, piePinned = false, pieT;
+const kwhTxt = v => '~' + fmt(v) + ' kWh';
+const groupName = g => g === 'biz' ? 'Business use' : 'Charity use';
+const CTA_HTML = `<div class="bd-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10.5V9a1.5 1.5 0 0 1 3 0v2"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.9-2.5L4.2 15a1.6 1.6 0 0 1 2.5-2l2.3 2.3V11"/></svg><span><b>${matchMedia('(hover: none)').matches ? 'Tap' : 'Hover over'} any slice</b> to see what&rsquo;s inside it: the parts it is made of and how much each uses in a year.</span></div>`;
+if (matchMedia('(hover: none)').matches) $('#pie-cta-t').textContent = 'Tap a slice to see what’s inside it';
+let pieActive = -1, piePart = -1, piePinned = false, pieT;
+function setPart(k){
+  piePart = k;
+  document.querySelectorAll('#pie .sl.on .part').forEach(n => n.classList.toggle('hot', +n.dataset.k === k));
+  document.querySelectorAll('.bd-parts li').forEach(n => n.classList.toggle('hot', +n.dataset.k === k));
+}
 function setPie(i){
-  clearTimeout(pieT); pieActive = i;
+  clearTimeout(pieT);
+  const changed = i !== pieActive; pieActive = i;
+  if (i >= 0) $('#pie-cta').classList.add('quiet');
   document.querySelectorAll('#pie .sl').forEach(g => {
     const k = +g.dataset.i, o = SLICES[k], on = k === i;
     g.classList.toggle('on', on); g.classList.toggle('dim', i >= 0 && !on);
@@ -784,41 +833,61 @@ function setPie(i){
   document.querySelectorAll('#pie .lab, .rows-p li').forEach(n => { const k = +n.dataset.i; n.classList.toggle('on', k === i); n.classList.toggle('dim', i >= 0 && k !== i); });
   const o = SLICES[i], put = (id, t) => { const n = document.getElementById(id); if (n) n.textContent = t; };
   put('pc-k', o ? o.k : 'Charity use');
-  put('pc-v', o ? pctTxt(o) : '~88%');
-  put('pc-s', o ? kwhTxt(o) : 'of your electricity');
-  put('pc-s2', o ? groupName(o.g) : '~12% business: the café');
-  $('#pie-detail').innerHTML = o ? `<b>${o.k}</b> &middot; ${pctTxt(o)} &middot; ${kwhTxt(o)}<br>${o.d}` : 'Hover over or tap a slice to see what it is.';
+  put('pc-v', o ? pctTxt(o) : '~79%');
+  put('pc-s', o ? kwhTxt(o.kwh) + ' a year' : 'of your electricity');
+  put('pc-s2', o ? groupName(o.g) : '~21% business: café and hire');
+  if (!changed) return;
+  const bd = $('#pie-bd');
+  if (!o) { bd.innerHTML = CTA_HTML; return; }
+  const sh = SHADES[o.g];
+  bd.innerHTML = `<div class="bd-h"><i class="sw ${o.g}"></i><span class="nm">${o.k}</span><span class="fg">${groupName(o.g)} &middot; ${pctTxt(o)} &middot; ${kwhTxt(o.kwh)} a year</span></div>
+    <p class="bd-d">${o.d}</p>
+    <ul class="bd-parts">${o.parts.map(([t, v], k) => `<li data-k="${k}"><i style="background:${sh[k]}"></i><span>${t}</span><b>${kwhTxt(v)}</b><em><span style="width:${(v / o.kwh * 100).toFixed(1)}%;background:${sh[k]}"></span></em></li>`).join('')}</ul>
+    ${o.n ? `<p class="bd-n">${o.n}</p>` : ''}`;
+  bd.querySelectorAll('.bd-parts li').forEach(li => { li.addEventListener('pointerenter', () => setPart(+li.dataset.k)); li.addEventListener('pointerleave', () => setPart(-1)); });
+  piePart = -1;
 }
 // hover on a mouse; tap to pick on touch (tap elsewhere to clear); focus from the keyboard
 function bindPie(node, i){
   node.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') setPie(i); });
-  node.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && !piePinned) pieT = setTimeout(() => setPie(-1), 80); });
+  node.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && !piePinned) pieT = setTimeout(() => setPie(-1), 90); });
   node.addEventListener('pointerdown', e => { piePinned = e.pointerType !== 'mouse'; setPie(i); });
   node.addEventListener('focus', () => setPie(i));
   node.addEventListener('blur', () => { if (!piePinned) setPie(-1); });
 }
-document.addEventListener('pointerdown', e => { if (piePinned && !e.target.closest('#pie .sl, #pie .lab, .rows-p li')) { piePinned = false; setPie(-1); } });
+document.addEventListener('pointerdown', e => { if (piePinned && !e.target.closest('#pie .sl, #pie .lab, .rows-p li, #pie-bd')) { piePinned = false; setPie(-1); } });
 SLICES.forEach((o, i) => {
   const li = document.createElement('li'); li.dataset.i = i; li.tabIndex = 0;
   li.innerHTML = `<i style="background:${o.g === 'biz' ? BIZ : CHAR}"></i><span>${o.k}</span><b>${pctTxt(o)}</b>`;
   $(o.g === 'biz' ? '#list-biz' : '#list-char').appendChild(li); bindPie(li, i);
 });
+$('#pie-bd').innerHTML = CTA_HTML;
 function drawPie(){
   const host = $('#pie'); if (!host.clientWidth) return; host.innerHTML = '';
-  const W = host.clientWidth, sm = W < 560, labW = 122, off = 32;
+  const W = host.clientWidth, sm = W < 560, labW = 150, off = 32;
   const r = sm ? Math.min(W / 2 - 18, 210) : Math.min(250, (W - 2 * (labW + off)) / 2);
-  const H = sm ? 2 * r + 40 : 2 * r + 84, cx = W / 2, cy = H / 2, ri = r * 0.57;
+  const H = sm ? 2 * r + 40 : 2 * r + 70, cx = W / 2, cy = H / 2, ri = r * 0.57;
   const svg = el('svg', {width:W, height:H, viewBox:`0 0 ${W} ${H}`}, host);
   const P = (a, rr) => [cx + rr * Math.sin(a), cy - rr * Math.cos(a)];
+  const wedge = (a0, a1) => { const big = a1 - a0 > Math.PI ? 1 : 0, [x0, y0] = P(a0, r), [x1, y1] = P(a1, r), [x2, y2] = P(a1, ri), [x3, y3] = P(a0, ri);
+    return `M${x0.toFixed(1)},${y0.toFixed(1)} A${r},${r} 0 ${big} 1 ${x1.toFixed(1)},${y1.toFixed(1)} L${x2.toFixed(1)},${y2.toFixed(1)} A${ri},${ri} 0 ${big} 0 ${x3.toFixed(1)},${y3.toFixed(1)} Z`; };
   let a = 0;
   SLICES.forEach(o => { o.a0 = a; a += o.kwh / PIE_SUM * Math.PI * 2; o.a1 = a; o.mid = (o.a0 + o.a1) / 2; });
   const sg = el('g', {}, svg);
   SLICES.forEach((o, i) => {
-    const big = o.a1 - o.a0 > Math.PI ? 1 : 0, [x0, y0] = P(o.a0, r), [x1, y1] = P(o.a1, r), [x2, y2] = P(o.a1, ri), [x3, y3] = P(o.a0, ri);
-    const g = el('g', {class:'sl', 'data-i':i, tabindex:0, role:'img', 'aria-label':`${o.k}: ${groupName(o.g)}, about ${pctTxt(o).slice(1)}, about ${fmt(o.kwh)} kWh a year`}, sg);
-    el('path', {d:`M${x0.toFixed(1)},${y0.toFixed(1)} A${r},${r} 0 ${big} 1 ${x1.toFixed(1)},${y1.toFixed(1)} L${x2.toFixed(1)},${y2.toFixed(1)} A${ri},${ri} 0 ${big} 0 ${x3.toFixed(1)},${y3.toFixed(1)} Z`,
-      fill:o.g === 'biz' ? BIZ : CHAR, stroke:'#fff', 'stroke-width':3, 'stroke-linejoin':'round',
+    const g = el('g', {class:'sl', 'data-i':i, tabindex:0, role:'img', 'aria-label':`${o.k}: ${groupName(o.g)}, about ${pctTxt(o).slice(1)}, about ${fmt(o.kwh)} kWh a year. ${o.parts.map(([t, v]) => `${t}: about ${fmt(v)} kWh`).join('. ')}.`}, sg);
+    el('path', {class:'main', d:wedge(o.a0, o.a1), fill:o.g === 'biz' ? BIZ : CHAR, stroke:'#fff', 'stroke-width':3, 'stroke-linejoin':'round',
       style:`--glow:${o.g === 'biz' ? 'rgba(212,114,26,.6)' : 'rgba(33,112,155,.55)'}`}, g);
+    // the breakdown, drawn inside the slice and shown only while it is picked
+    if (o.parts.length > 1) {
+      let b = o.a0;
+      o.parts.forEach(([t, v], k) => {
+        const e = b + v / o.kwh * (o.a1 - o.a0);
+        const n = el('path', {class:'part', 'data-k':k, d:wedge(b, e), fill:SHADES[o.g][k], stroke:'#fff', 'stroke-width':1.5, 'stroke-linejoin':'round'}, g);
+        n.addEventListener('pointerenter', () => setPart(k)); n.addEventListener('pointerleave', () => setPart(-1));
+        b = e;
+      });
+    }
     bindPie(g, i);
   });
   // labels on leader lines, nudged apart down each side so none overlap
@@ -834,17 +903,17 @@ function drawPie(){
       const g = el('g', {class:'lab', 'data-i':l.i}, svg), [ax, ay] = P(l.o.mid, r + 4), lx = cx + l.side * (r + off), anchor = l.side > 0 ? 'start' : 'end';
       el('polyline', {points:`${ax.toFixed(1)},${ay.toFixed(1)} ${l.ex.toFixed(1)},${l.ey.toFixed(1)} ${(lx - l.side * 6).toFixed(1)},${l.y.toFixed(1)}`, fill:'none', stroke:'#93a2aa', 'stroke-width':1.2}, g);
       el('text', {x:lx, y:l.y - 3, 'text-anchor':anchor, class:'pl-pct'}, g, pctTxt(l.o));
-      el('text', {x:lx, y:l.y + 13, 'text-anchor':anchor, class:'pl-name'}, g, l.o.short);
+      el('text', {x:lx, y:l.y + 13, 'text-anchor':anchor, class:'pl-name'}, g, l.o.short || l.o.k);
       bindPie(g, l.i);
     });
   }
-  // the read-out in the middle: the headline, or the slice under the pointer
+  // the read-out in the middle: the headline, or the section under the pointer
   const c = el('g', {'pointer-events':'none', 'aria-hidden':'true'}, svg);
   el('text', {x:cx, y:cy - ri * 0.30, 'text-anchor':'middle', class:'pc-k', id:'pc-k'}, c);
   el('text', {x:cx, y:cy + ri * 0.13, 'text-anchor':'middle', class:'pc-v', id:'pc-v', style:`font-size:${Math.round(ri * 0.40)}px`}, c);
   el('text', {x:cx, y:cy + ri * 0.38, 'text-anchor':'middle', class:'pc-s', id:'pc-s'}, c);
   el('text', {x:cx, y:cy + ri * 0.58, 'text-anchor':'middle', class:'pc-s2', id:'pc-s2'}, c);
-  setPie(pieActive);
+  const keep = pieActive; pieActive = -2; setPie(keep);
 }
 
 /* ---------- tabs ---------- */
