@@ -71,14 +71,14 @@ button.chip svg{width:13px;height:13px}
 main{grid-area:body;min-width:0;display:flex;flex-direction:column;gap:22px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-1)}
 /* intro */
-.intro,.charity,.savings{padding:32px 32px 28px;position:relative;overflow:hidden}
+.intro,.charity,.sim{padding:32px 32px 28px;position:relative;overflow:hidden}
 .intro::after,.charity::after{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;
   background:radial-gradient(circle, rgba(58,137,174,.16), transparent 70%);pointer-events:none}
 .kicker{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
   display:flex;align-items:center;gap:10px;margin:0 0 14px}
 .kicker::before{content:"";width:20px;height:2px;background:currentColor;border-radius:2px;flex:none}
-.intro h2,.charity h2,.savings h2{margin:0;font-size:40px;line-height:1.06;letter-spacing:-.028em;font-weight:800;color:var(--brand);max-width:620px;text-wrap:balance}
-.intro .lead,.charity .lead,.savings .lead{margin:16px 0 0;font-size:16.5px;line-height:1.65;color:var(--ink-2);max-width:680px}
+.intro h2,.charity h2,.sim h2{margin:0;font-size:40px;line-height:1.06;letter-spacing:-.028em;font-weight:800;color:var(--brand);max-width:620px;text-wrap:balance}
+.intro .lead,.charity .lead,.sim .lead{margin:16px 0 0;font-size:16.5px;line-height:1.65;color:var(--ink-2);max-width:680px}
 /* the three headlines, each in its own colour: petrol for the year, warm amber for the peak, night indigo for the night */
 .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px}
 .kpi{position:relative;overflow:hidden;border-radius:18px;padding:18px 20px 18px;min-width:0;color:#fff;box-shadow:var(--sh-1)}
@@ -184,14 +184,6 @@ section.find{padding:28px 32px 30px;scroll-margin-top:136px}
 .tag.now{background:var(--good-bg);color:var(--good)}
 .tag.walk{background:var(--warn-bg);color:var(--warn)}
 .tag.later{background:var(--tint-2);color:var(--muted)}
-.steps{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden}
-.steps li{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:14px;align-items:start;padding:16px 18px;border-top:1px solid var(--line-2)}
-.steps li:first-child{border-top:0}
-.steps .n{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent-l),var(--brand))}
-.steps h4{margin:5px 0 3px;font-size:15px;font-weight:750;color:var(--ink)}
-.steps p{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
-.steps .tag{margin-top:5px}
-.steps-h{margin:26px 0 0;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 /* tables */
 details{margin-top:12px;font-size:13px;color:var(--ink-2);padding:0 4px 6px}
 summary{cursor:pointer;font-size:12.5px;font-weight:650;color:var(--accent);list-style:none;display:inline-flex;align-items:center;gap:6px}
@@ -266,13 +258,55 @@ th:first-child,td:first-child{text-align:left}
 .l60-biz{background:var(--summer);color:var(--ink);border-radius:0 10px 10px 0;justify-content:center;font-size:12.5px}
 .l60-mark{position:absolute;top:-7px;bottom:-7px;width:0;border-left:2px solid var(--ink)}
 .l60-mark span{position:absolute;top:100%;left:0;transform:translate(-50%,6px);font-size:11.5px;font-weight:750;color:var(--ink)}
-/* savings */
-.steps .sv{display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:2px;min-width:180px}
-.steps .sv .v{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--brand);white-space:nowrap;line-height:1.15}
-.steps .sv small{font-size:12px;color:var(--muted)}
-.steps .sv .tag{margin-top:7px}
-.steps li.later{background:var(--tint)}
-.steps li.later .sv .v{color:var(--accent)}
+/* June 2027 simulation */
+.sim h2{max-width:780px}
+.sim-top{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:26px}
+.sim-card{position:relative;overflow:hidden;border-radius:20px;padding:20px 22px 20px;border:1px solid var(--line);background:#fff}
+.sim-card.tem{border-color:rgba(255,63,16,.28);background:linear-gradient(160deg,#fff 40%,#fff4ef)}
+.sc-name{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:800;color:var(--ink)}
+.sc-name .star{width:16px;height:16px;color:#ff3f10;flex:none}
+.sc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sc-tags span{font-size:11.5px;font-weight:650;padding:4px 10px;border-radius:999px;background:var(--tint-2);color:var(--ink-2)}
+.sim-card.tem .sc-tags span{background:#ffe9e1;color:#b8300b}
+.sc-total{margin-top:16px;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.sim-card.tem .sc-total{color:var(--brand)}
+.sc-total small{font-size:15px;font-weight:600;color:var(--muted);margin-left:6px;letter-spacing:0}
+.sc-month{margin-top:6px;font-size:13px;color:var(--muted)}
+.sc-bar{margin-top:16px;height:12px;border-radius:6px;background:var(--tint-2);overflow:hidden}
+.sc-bar span{display:block;height:100%;border-radius:6px;background:#7d8e97}
+.sim-card.tem .sc-bar span{background:linear-gradient(90deg,#ff7a4f,#ff3f10)}
+.sim-save{margin-top:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 28px;padding:20px 24px;border-radius:20px;
+  background:linear-gradient(165deg,#134359,#0b2230);color:#fff;box-shadow:var(--sh-2)}
+.sim-save .k{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8fcbe6}
+.ss-v{margin-top:6px;font-size:40px;font-weight:850;letter-spacing:-.03em;line-height:1}
+.ss-v small{font-size:15px;font-weight:600;color:rgba(226,237,242,.8);margin-left:8px;letter-spacing:0}
+.sim-save p{font-size:14.5px;line-height:1.5;color:rgba(226,237,242,.88);max-width:420px}
+.sim-save p b{color:#7fdcc4}
+.sim-h{margin:30px 0 0;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cmp-wrap{margin-top:12px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+.cmp{width:100%;border-collapse:collapse;min-width:0;border:0;border-radius:0;font-variant-numeric:normal}
+.cmp th,.cmp td{padding:12px 18px;border-top:1px solid var(--line-2);text-align:right;white-space:normal;vertical-align:top}
+.cmp thead th{border-top:0;background:var(--tint);font-size:12.5px;font-weight:800;color:var(--ink-2)}
+.cmp thead th.c-tem{color:#c2330b}
+.cmp tbody th{text-align:left;font-size:14px;font-weight:650;color:var(--ink);background:none}
+.cmp tbody th small,.cmp td small{display:block;margin-top:2px;font-size:12px;font-weight:500;color:var(--muted)}
+.cmp td b{font-size:15px;font-weight:750;color:var(--ink);font-variant-numeric:tabular-nums}
+.cmp td.c-tem{background:#fff9f6}
+.cmp td b.less{color:var(--good)}
+.cmp td b.zero{color:var(--good)}
+.cmp tfoot th,.cmp tfoot td{border-top:2px solid var(--line);background:var(--tint);font-size:15px}
+.cmp tfoot th{text-align:left;font-weight:800;color:var(--ink)}
+.cmp tfoot td b{font-size:18px;font-weight:850}
+.cmp tfoot td.c-tem b{color:var(--brand)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.src-bar{display:flex;gap:2px;height:40px;border-radius:12px;overflow:hidden;margin-top:12px}
+.src-bar div{display:flex;align-items:center;padding-left:12px;color:#fff;font-size:13px;font-weight:750;white-space:nowrap;min-width:0;overflow:hidden}
+.src-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.src{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:#fff;display:grid;grid-template-columns:12px minmax(0,1fr);gap:4px 10px}
+.src i{width:12px;height:12px;border-radius:3px;margin-top:5px}
+.src .v{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--brand)}
+.src h4{grid-column:2;margin:0;font-size:14px;font-weight:750;color:var(--ink)}
+.src p{grid-column:2;font-size:12.5px;line-height:1.5;color:var(--muted)}
 /* footer */
 .foot-note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 36px;margin-top:6px;padding:20px 4px 0;
   border-top:1px solid var(--line);font-size:12px;line-height:1.65;color:var(--muted)}
@@ -286,6 +320,7 @@ th:first-child,td:first-child{text-align:left}
 .tip .m{color:rgba(226,237,242,.7)}
 @media (max-width:860px){
   .pie-grid{grid-template-columns:minmax(0,1fr)}
+  .sim-top,.src-list{grid-template-columns:minmax(0,1fr)}
   .pie-side .bd{order:-1;margin-bottom:12px}
   .kpis{grid-template-columns:minmax(0,1fr)}
   .points{grid-template-columns:1fr}
@@ -296,13 +331,11 @@ th:first-child,td:first-child{text-align:left}
   header h1{font-size:15px}
   .wrap{padding:16px 12px 48px;gap:16px}
   main{gap:16px}
-  .intro,.charity,.savings,section.find{padding:22px 18px}
-  .intro h2,.charity h2,.savings h2{font-size:29px}
+  .intro,.charity,.sim,section.find{padding:22px 18px}
+  .intro h2,.charity h2,.sim h2{font-size:29px}
   .wrap1{padding:16px 12px 20px;gap:16px}
   .wrap-foot{padding:0 12px 40px}
   .tabs{padding:0 10px;gap:4px}
-  .steps li{grid-template-columns:32px minmax(0,1fr)}
-  .steps .sv{grid-column:2;align-items:flex-start;text-align:left;min-width:0}
   .kpi .v{font-size:30px}
   .shead h3{font-size:20px}
   .explain{font-size:15px}
@@ -312,6 +345,13 @@ th:first-child,td:first-child{text-align:left}
   .split div{font-size:12.5px;padding-left:10px}
 }
 @media (max-width:640px){
+  .cmp thead{display:none}
+  .cmp tr{display:grid;grid-template-columns:1fr 1fr}
+  .cmp tbody th,.cmp tfoot th{grid-column:1 / -1;border-top:1px solid var(--line-2);padding-bottom:4px}
+  .cmp td{border-top:0;text-align:left;padding-top:4px}
+  .cmp td::before{content:attr(data-who);display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .cmp td.c-tem::before{color:#c2330b}
+  .sc-total,.ss-v{font-size:34px}
   .tab .lbl-f{display:none} .tab .lbl-s{display:inline}
   .tab{padding:9px 12px;gap:8px;font-size:14px}
 }
@@ -332,10 +372,10 @@ th:first-child,td:first-child{text-align:left}
   .wrap{display:block;padding:12px 0 0;max-width:none}
   .card{box-shadow:none}
   main{gap:14px;margin-top:14px}
-  .opp,.point,.callout,.kpi,.steps li,.chartbox,.shead,#pie,.pie-side .grp,.line60{break-inside:avoid}
-  .shead,.explain,.steps-h{break-after:avoid}
+  .opp,.point,.callout,.kpi,.cmp tr,.sim-top,.sim-save,.chartbox,.shead,#pie,.pie-side .grp,.line60{break-inside:avoid}
+  .shead,.explain,.sim-h{break-after:avoid}
   .chart svg{width:100% !important;height:auto !important}
-  .chartbox,.split,.split div,.kpi,.num,.steps .n,.tag,.mk,#fp{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .chartbox,.split,.split div,.kpi,.num,.tag,.mk,#fp,.sim-card,.sim-save,.src-bar,.cmp th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .foot-note{display:grid}
 }
 </style>
@@ -357,7 +397,7 @@ th:first-child,td:first-child{text-align:left}
 <nav class="tabs" role="tablist" aria-label="Sections">
   <button class="tab" type="button" role="tab" id="t-charity" aria-controls="p-charity" aria-selected="true"><span class="tn">1</span><span class="lbl-f">Charity consumption</span><span class="lbl-s">Charity use</span></button>
   <button class="tab" type="button" role="tab" id="t-portrait" aria-controls="p-portrait" aria-selected="false" tabindex="-1"><span class="tn">2</span><span class="lbl-f">Electricity portrait</span><span class="lbl-s">Portrait</span></button>
-  <button class="tab" type="button" role="tab" id="t-savings" aria-controls="p-savings" aria-selected="false" tabindex="-1"><span class="tn">3</span><span class="lbl-f">Savings &amp; next steps</span><span class="lbl-s">Savings</span></button>
+  <button class="tab" type="button" role="tab" id="t-sim" aria-controls="p-sim" aria-selected="false" tabindex="-1"><span class="tn">3</span><span class="lbl-f">June 2027 simulation</span><span class="lbl-s">June 2027</span></button>
 </nav>
 </div>
 
@@ -491,26 +531,55 @@ th:first-child,td:first-child{text-align:left}
       </div>
     </section>
 
-    <div class="next"><button type="button" class="go" data-go="savings">Next: savings &amp; next steps <span aria-hidden="true">&rarr;</span></button></div>
+    <div class="next"><button type="button" class="go" data-go="sim">Next: the June 2027 simulation <span aria-hidden="true">&rarr;</span></button></div>
 
   </main>
 
 </div>
 </div>
 
-<!-- ===== tab 3: savings and next steps ===== -->
-<div class="panel" id="p-savings" role="tabpanel" aria-labelledby="t-savings" hidden>
+<!-- ===== tab 3: June 2027 simulation ===== -->
+<div class="panel" id="p-sim" role="tabpanel" aria-labelledby="t-sim" hidden>
 <div class="wrap1">
-  <section class="card savings" aria-labelledby="h-savings">
-    <div class="kicker">Savings &amp; next steps</div>
-    <h2 id="h-savings">Four ways the data points to lower bills</h2>
-    <p class="lead">What each could be worth in a year, in a sensible order to take them in.</p>
-    <ol class="steps">
-      <li><div class="n">1</div><div><h4>Tell the supplier about your charity use</h4><p>With charity use around 79%, comfortably over the 60% line, one declaration to British Gas puts the whole supply on the charity rate of VAT &mdash; 0% until 31 March 2027, then 5% instead of 20% &mdash; with no Climate Change Levy. Your VAT adviser confirms the share first. Ask too for any VAT and levy overpaid in the last four years.</p></div><div class="sv"><div class="v">£8,000&ndash;£10,000</div><small>a year</small><span class="tag now">Ready now</span></div></li>
-      <li><div class="n">2</div><div><h4>Reduce the grid connection to 110 kVA</h4><p>An application to SSEN, the network operator; the daily capacity charge then falls on every bill. Confirm the busiest kVA figure on the invoices first and allow for any heat pumps or car chargers: reductions are allowed once a year, and capacity given up can cost money to get back.</p></div><div class="sv"><div class="v">£3,300&ndash;£6,500</div><small>a year</small><span class="tag now">Ready now</span></div></li>
-      <li><div class="n">3</div><div><h4>Walk the building one evening</h4><p>After everyone has gone home, note what is still running: fridges, urns and water heaters, IT, heating controls and outside lights. Two timers to ask about: an extra load from 2am to 4am on most Sundays, and heating that ran all day on Boxing Day.</p></div><div class="sv"><div class="v">£3,800</div><small>a year per 2 kW switched off</small><span class="tag walk">Needs a walk-round</span></div></li>
-      <li class="later"><div class="n">4</div><div><h4>Check the network band</h4><p>Your bill shows the band today. With the smaller connection in place, the band can drop when bands are next reset, in April 2031: up to £12,000 a year from the top band, nearer £1,000 from the band below.</p></div><div class="sv"><div class="v">£1,000&ndash;£12,000</div><small>a year</small><span class="tag later">From 2031</span></div></li>
-    </ol>
+  <section class="card sim" aria-labelledby="h-sim">
+    <div class="kicker">June 2027 simulation</div>
+    <h2 id="h-sim">Staying with British Gas vs moving to tem with RenewaBlox</h2>
+    <p class="lead">The first year of tem&rsquo;s contract, from 9 June 2027, worked out on the last 12 months of the church&rsquo;s own electricity use.</p>
+
+    <div class="sim-top">
+      <div class="sim-card bg">
+        <div class="sc-h"><span class="sc-name">Staying with British Gas</span></div>
+        <div class="sc-tags"><span>Today&rsquo;s contract prices</span><span>250 kVA</span><span>20% VAT + levy</span></div>
+        <div class="sc-total"><span id="bg-total"></span><small>a year</small></div>
+        <div class="sc-month" id="bg-month"></div>
+        <div class="sc-bar"><span id="bg-bar"></span></div>
+      </div>
+      <div class="sim-card tem">
+        <div class="sc-h"><span class="sc-name"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>Moving to tem with RenewaBlox</span></div>
+        <div class="sc-tags"><span>RED + RED Plus</span><span>110 kVA</span><span>Charity VAT, no levy</span></div>
+        <div class="sc-total"><span id="tem-total"></span><small>a year</small></div>
+        <div class="sc-month" id="tem-month"></div>
+        <div class="sc-bar"><span id="tem-bar"></span></div>
+      </div>
+    </div>
+
+    <div class="sim-save">
+      <div><div class="k">The difference</div><div class="ss-v"><span id="save-total"></span><small>a year less</small></div></div>
+      <p id="save-sub"></p>
+    </div>
+
+    <h3 class="sim-h">Line by line</h3>
+    <div class="cmp-wrap"><table class="cmp" id="cmp">
+      <thead><tr><th scope="col"><span class="vh">Charge</span></th><th scope="col" class="c-bg">British Gas</th><th scope="col" class="c-tem">tem with RenewaBlox</th></tr></thead>
+      <tbody></tbody>
+      <tfoot></tfoot>
+    </table></div>
+
+    <h3 class="sim-h">Where the saving comes from</h3>
+    <div class="src-bar" id="src-bar" role="img"></div>
+    <div class="src-list" id="src-list"></div>
+
+    <p class="note-ill" id="sim-note"></p>
   </section>
 </div>
 </div>
@@ -921,8 +990,63 @@ function drawPie(){
   const keep = pieActive; pieActive = -2; setPie(keep);
 }
 
+/* ---------- tab 3: June 2027 simulation ---------- */
+// Both bills on the last 12 months of meter readings. British Gas at today's contract prices
+// (7% Direct Debit discount already in them; standing charge covers the national network charge),
+// 250 kVA, no charity relief. tem at its quote for 9 June 2027 to 8 June 2029 (RED day/night fixed),
+// 110 kVA, with the charity rate of VAT (5%; the 0% rate ends 31 March 2027) and no Climate Change Levy.
+(function buildSim(){
+  let night = 0, all = 0;
+  for (let d = ND - 365; d < ND; d++) for (let p = 0; p < NP; p++) { const k = DATA.heat[d][p] / 20; all += k; if (p < 14) night += k; }
+  const nk = Math.round(night / 100) * 100, tk = Math.round(all / 100) * 100, dk = tk - nk;
+  const CCL = 0.801;                                    // p/kWh, main rate on electricity
+  const r10 = v => Math.round(v / 10) * 10, gbp = v => (v < 0 ? '−£' : '£') + fmt(Math.abs(v));
+  const BG = {day:23.850, night:16.960, standing:2428.600, capacity:10.930, kva:250, vat:0.20};          // p/kWh, p/day, p/kVA/day
+  const TEM = {day:23.2942, night:17.9212, redDay:1.464, redNight:1.099, standing:5.72, tnuos:680.26, capacity:3.87, kva:110, vat:0.05}; // £/month for the last three
+  const rows = [
+    {k:'Electricity in the day', sub:`${fmt(dk)} kWh, 7am to midnight`, bg:[dk * BG.day / 100, `${BG.day.toFixed(2)}p a kWh`], tem:[dk * TEM.day / 100, `${TEM.day.toFixed(2)}p a kWh`]},
+    {k:'Electricity at night', sub:`${fmt(nk)} kWh, midnight to 7am`, bg:[nk * BG.night / 100, `${BG.night.toFixed(2)}p a kWh`], tem:[nk * TEM.night / 100, `${TEM.night.toFixed(2)}p a kWh`]},
+    {k:'RED Plus benefit', sub:'tem’s exempt-supply benefit, off every unit', bg:[null, 'Not available'], tem:[-(dk * TEM.redDay + nk * TEM.redNight) / 100, `${TEM.redDay}p day, ${TEM.redNight}p night`]},
+    {k:'Standing charge', bg:[BG.standing / 100 * 365, `£${(BG.standing / 100).toFixed(2)} a day`], tem:[TEM.standing * 12, `£${TEM.standing.toFixed(2)} a month`]},
+    {k:'National network charge', sub:'The fixed part of the grid’s costs', bg:[null, 'Inside the standing charge'], tem:[TEM.tnuos * 12, `£${fmt(Math.round(TEM.tnuos))} a month, at cost`]},
+    {k:'Grid connection', sub:'Capacity reserved for the building', bg:[BG.kva * BG.capacity / 100 * 365, `${BG.kva} kVA at ${BG.capacity.toFixed(2)}p a kVA a day`], tem:[TEM.kva * TEM.capacity * 12, `${TEM.kva} kVA at £${TEM.capacity.toFixed(2)} a kVA a month`]},
+    {k:'Climate Change Levy', sub:'A government tax on business energy', bg:[tk * CCL / 100, `${CCL}p a kWh`], tem:[0, 'None on charity use']},
+  ];
+  rows.forEach(r => { ['bg', 'tem'].forEach(w => { if (r[w][0] !== null) r[w][0] = r10(r[w][0]); }); });
+  const sum = w => rows.reduce((a, r) => a + (r[w][0] || 0), 0);
+  const bgSub = sum('bg'), temSub = sum('tem'), bgVat = r10(bgSub * BG.vat), temVat = r10(temSub * TEM.vat);
+  rows.push({k:'VAT', bg:[bgVat, '20%, the standard rate'], tem:[temVat, '5%, the charity rate']});
+  const bgTot = bgSub + bgVat, temTot = temSub + temVat, save = bgTot - temTot;
+  const cell = (w, r, other) => {
+    const [v, note] = r[w], cls = w === 'tem' && v !== null && (v < 0 || (other !== null && v < other)) ? (v === 0 ? 'zero' : 'less') : '';
+    return `<td class="c-${w}" data-who="${w === 'bg' ? 'British Gas' : 'tem'}"><b class="${cls}">${v === null ? '—' : gbp(v)}</b><small>${note}</small></td>`;
+  };
+  $('#cmp tbody').innerHTML = rows.map(r => `<tr><th scope="row">${r.k}${r.sub ? `<small>${r.sub}</small>` : ''}</th>${cell('bg', r, r.tem[0])}${cell('tem', r, r.bg[0])}</tr>`).join('');
+  $('#cmp tfoot').innerHTML = `<tr><th scope="row">Total a year</th><td class="c-bg" data-who="British Gas"><b>${gbp(bgTot)}</b><small>about ${gbp(r10(bgTot / 12))} a month</small></td><td class="c-tem" data-who="tem"><b>${gbp(temTot)}</b><small>about ${gbp(r10(temTot / 12))} a month</small></td></tr>`;
+  $('#bg-total').textContent = gbp(bgTot); $('#tem-total').textContent = gbp(temTot);
+  $('#bg-month').textContent = `About ${gbp(r10(bgTot / 12))} a month, VAT included`;
+  $('#tem-month').textContent = `About ${gbp(r10(temTot / 12))} a month, VAT included`;
+  $('#bg-bar').style.width = '100%'; $('#tem-bar').style.width = (temTot / bgTot * 100).toFixed(1) + '%';
+  $('#save-total').textContent = gbp(save);
+  $('#save-sub').innerHTML = `<b>${Math.round(save / bgTot * 100)}% less</b> than staying put: about ${gbp(r10(save / 12))} a month, every month of the contract.`;
+  // where it comes from, worked out in this order: tem's prices at 250 kVA, then the smaller connection, then the charity tax relief
+  const temAt250 = temSub - rows[5].tem[0] + r10(BG.kva * TEM.capacity * 12);
+  const s1 = bgTot - r10((temAt250 + rows[6].bg[0]) * 1.2);
+  const s2 = r10((temAt250 + rows[6].bg[0]) * 1.2) - r10((temSub + rows[6].bg[0]) * 1.2);
+  const s3 = save - s1 - s2;
+  const SRC = [
+    {v:s3, c:'#12475e', k:'Charity rate of VAT, no levy', d:'With around 79% charity use, the whole supply drops from 20% to 5% VAT and the Climate Change Levy goes.'},
+    {v:s2, c:'#3a89ae', k:'A smaller grid connection', d:'110 kVA instead of 250: 140 fewer kVA to pay for every month, still well above the busiest day.'},
+    {v:s1, c:'#ff5a26', k:'tem’s prices and RED Plus', d:'Power priced against tem’s UK renewable portfolio, with the RED Plus benefit off every unit.'},
+  ];
+  $('#src-bar').setAttribute('aria-label', SRC.map(o => `${o.k} ${gbp(o.v)}`).join(', '));
+  $('#src-bar').innerHTML = SRC.map(o => `<div style="flex:${o.v};background:${o.c}">${gbp(o.v)}</div>`).join('');
+  $('#src-list').innerHTML = SRC.map(o => `<div class="src"><i style="background:${o.c}"></i><div class="v">${gbp(o.v)}</div><h4>${o.k}</h4><p>${o.d}</p></div>`).join('');
+  $('#sim-note').innerHTML = `Both bills use the last 12 months of meter readings: ${fmt(tk)} kWh, ${Math.round(nk / tk * 100)}% of it between midnight and 7am. British Gas at the prices on today&rsquo;s contract, with the 7% Direct Debit discount already in them, carried on past June 2027; its standing charge is taken to include the national network charge. tem at its quote for 9 June 2027 to 8 June 2029 (RED day/night fixed), with the national network charge at tem&rsquo;s forecast, passed through at cost. Climate Change Levy at ${CCL}p a kWh. Meter and reactive power charges, passed through at cost, are left out of both. The saving is split in the order: tem&rsquo;s prices, then the smaller connection, then the charity relief.`;
+})();
+
 /* ---------- tabs ---------- */
-const TABS = ['charity', 'portrait', 'savings'];
+const TABS = ['charity', 'portrait', 'sim'];
 function showTab(name, focus){
   TABS.forEach(t => { const on = t === name, b = $('#t-' + t); b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; $('#p-' + t).hidden = !on; });
   hideTip(); scrollTo({top:0});

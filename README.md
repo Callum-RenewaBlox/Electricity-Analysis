@@ -26,9 +26,16 @@ The page opens on a chart, not a wall of text, and splits into three tabs:
    the whole year in one half-hourly heat map (numbered markers, Christmas and Easter flagged), a winter and a summer
    week, where the electricity goes, the months against last year, and the
    250 kVA connection drawn as a 250-seat hall.
-3. **Savings & next steps** — the four ways the data points to lower bills,
-   each with its value, how ready it is and what it involves, in the order to
-   take them.
+3. **June 2027 simulation** — staying with British Gas against moving to tem
+   with RenewaBlox for the first year of tem's contract (from 9 June 2027), on
+   the last 12 months of meter readings: the two yearly totals side by side,
+   the difference, every charge line by line, and where the saving comes from
+   (the charity rate of VAT and no Climate Change Levy, the 110 kVA
+   connection, tem's prices and RED Plus). British Gas at today's contract
+   prices, 250 kVA, 20% VAT and the levy; tem at its quote (RED day/night
+   fixed), 110 kVA, 5% VAT and no levy. The page works the bills out from the
+   embedded meter data and the two price lists, and states its assumptions
+   under the comparison.
 
 Every chart has a hover (and tap) read-out, a table or text alternative, and
 is drawn from the embedded data at the container's real width, so labels stay
