@@ -18,14 +18,13 @@ The page opens on a chart, not a wall of text, and splits into three tabs:
    centre and the list beside the chart follow it. A bar underneath sets the
    ~88% charity share against the 60% line at which the whole supply gets the
    charity rate of VAT and no Climate Change Levy.
-2. **Electricity portrait** — the findings in full: the year at a glance, kW,
-   kWh and kVA in one card each, then the whole year in one half-hourly heat
-   map (numbered markers, Christmas and Easter flagged), a winter and a summer
+2. **Electricity portrait** — the findings in full: the year at a glance, then
+   the whole year in one half-hourly heat map (numbered markers, Christmas and Easter flagged), a winter and a summer
    week, where the electricity goes, the months against last year, and the
    250 kVA connection drawn as a 250-seat hall.
 3. **Savings & next steps** — the four ways the data points to lower bills,
    each with its value, how ready it is and what it involves, in the order to
-   take them, and a "Talk to us" button.
+   take them.
 
 Every chart has a hover (and tap) read-out, a table or text alternative, and
 is drawn from the embedded data at the container's real width, so labels stay

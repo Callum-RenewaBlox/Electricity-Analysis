@@ -66,10 +66,9 @@ button.chip svg{width:13px;height:13px}
 .wrap1{max-width:1240px;margin:0 auto;padding:28px 24px 28px;display:flex;flex-direction:column;gap:22px}
 .wrap-foot{max-width:1240px;margin:0 auto;padding:0 24px 48px}
 .wrap{max-width:1240px;margin:0 auto;padding:28px 24px 28px;display:grid;
-  grid-template-columns:minmax(0,1fr) 330px;grid-template-areas:"intro aside" "body aside";gap:22px 28px;align-items:start}
+  grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "body";gap:22px;align-items:start}
 .intro{grid-area:intro}
 main{grid-area:body;min-width:0;display:flex;flex-direction:column;gap:22px}
-aside{grid-area:aside;position:sticky;top:136px;display:flex;flex-direction:column;gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-1)}
 /* intro */
 .intro,.charity,.savings{padding:32px 32px 28px;position:relative;overflow:hidden}
@@ -90,20 +89,6 @@ aside{grid-area:aside;position:sticky;top:136px;display:flex;flex-direction:colu
 .note-ill{margin-top:16px;font-size:12px;line-height:1.5;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
 .note-ill::before{content:"i";flex:none;width:16px;height:16px;border-radius:50%;background:var(--tint-3);color:var(--accent);
   font-size:10px;font-weight:800;display:grid;place-items:center;font-style:italic;margin-top:1px}
-/* glossary */
-.words{padding:24px 28px 26px}
-.words .head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.words h3{margin:0;font-size:19px;font-weight:780;letter-spacing:-.014em;color:var(--brand)}
-.words .head p{font-size:13px;color:var(--muted)}
-.wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
-.word{border:1px solid var(--line);border-radius:16px;padding:16px 16px 15px;background:linear-gradient(180deg,#fff,var(--tint) 140%);display:flex;flex-direction:column;gap:8px}
-.word .top{display:flex;align-items:center;gap:12px}
-.word .ic{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--tint-2);color:var(--accent)}
-.word .ic svg{width:22px;height:22px}
-.word .t{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--brand);line-height:1}
-.word .t span{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.word p{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
-.word p.eg{font-size:12.5px;color:var(--muted);padding-top:8px;border-top:1px dashed var(--line);margin-top:auto}
 /* sections */
 section.find{padding:28px 32px 30px;scroll-margin-top:136px}
 .shead{display:flex;align-items:flex-start;gap:16px}
@@ -210,33 +195,6 @@ table{border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:420px
 th,td{padding:7px 14px;text-align:right;border-top:1px solid var(--line-2);white-space:nowrap}
 th{background:var(--tint-2);font-size:12px;font-weight:700;color:var(--ink-2);border-top:0}
 th:first-child,td:first-child{text-align:left}
-/* the short version */
-.tally{padding:22px 22px 20px;border-radius:22px;background:linear-gradient(165deg,#134359,#0b2230);color:#fff;box-shadow:var(--sh-2);position:relative;overflow:hidden}
-.tally::before{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle, rgba(58,137,174,.45), transparent 70%)}
-.tally > *{position:relative}
-.tally .k{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8fcbe6}
-.tally h2{margin:8px 0 0;font-size:24px;line-height:1.18;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
-.tally .sub{margin-top:8px;font-size:13px;line-height:1.5;color:rgba(226,237,242,.8)}
-.rows{margin-top:16px;display:grid;gap:0}
-.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:11px 0;border-top:1px solid rgba(255,255,255,.1)}
-.row .n{font-size:13.5px;font-weight:650;line-height:1.3}
-.row .st{grid-column:1;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.row .st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-.row .st.now{color:#7fdcc4} .row .st.walk{color:#ffc98a} .row .st.later{color:rgba(226,237,242,.6)}
-.row .a{grid-column:2;grid-row:1 / span 2;font-size:15px;font-weight:800;white-space:nowrap;text-align:right}
-.row .a small{display:block;font-size:11px;font-weight:600;color:rgba(226,237,242,.62)}
-.tally .foot{margin-top:12px;font-size:11.5px;line-height:1.5;color:rgba(226,237,242,.62)}
-.tally a.cta{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--brand);
-  font-weight:750;font-size:14px;text-decoration:none;padding:12px 16px;border-radius:999px;transition:transform .2s}
-.tally a.cta:hover{transform:translateY(-1px)}
-.toc{padding:16px 18px 14px}
-.toc .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.toc a{display:grid;grid-template-columns:26px minmax(0,1fr);gap:8px;align-items:center;padding:7px 8px;margin:0 -8px;border-radius:10px;
-  text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:600;transition:background .15s,color .15s}
-.toc a span{font-size:11.5px;font-weight:800;color:var(--accent-l);font-variant-numeric:tabular-nums}
-.toc a:hover{background:var(--tint);color:var(--brand)}
-.toc a.on{background:var(--tint-2);color:var(--brand)}
 /* charity consumption */
 .pie-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px 28px;align-items:center;margin-top:14px}
 #pie svg{display:block;overflow:visible;margin:0 auto;touch-action:manipulation}
@@ -283,8 +241,6 @@ th:first-child,td:first-child{text-align:left}
 .steps .sv .tag{margin-top:7px}
 .steps li.later{background:var(--tint)}
 .steps li.later .sv .v{color:var(--accent)}
-.cta-band{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;padding:24px 28px}
-.cta-band a.cta{margin-top:0;padding:13px 24px}
 /* footer */
 .foot-note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 36px;margin-top:6px;padding:20px 4px 0;
   border-top:1px solid var(--line);font-size:12px;line-height:1.65;color:var(--muted)}
@@ -296,16 +252,10 @@ th:first-child,td:first-child{text-align:left}
 .tip b{font-weight:700;color:#fff}
 .tip .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:0}
 .tip .m{color:rgba(226,237,242,.7)}
-@media (max-width:1060px){
-  .wrap{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "aside" "body"}
-  aside{position:static}
-  .tally .rows{grid-template-columns:1fr 1fr;column-gap:22px}
-  .toc{display:none}
-}
 @media (max-width:860px){
   .pie-grid{grid-template-columns:minmax(0,1fr)}
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .wgrid,.points{grid-template-columns:1fr}
+  .points{grid-template-columns:1fr}
   .split-list{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
@@ -313,21 +263,19 @@ th:first-child,td:first-child{text-align:left}
   header h1{font-size:15px}
   .wrap{padding:16px 12px 48px;gap:16px}
   main{gap:16px}
-  .intro,.charity,.savings,section.find,.words{padding:22px 18px}
+  .intro,.charity,.savings,section.find{padding:22px 18px}
   .intro h2,.charity h2,.savings h2{font-size:29px}
   .wrap1{padding:16px 12px 20px;gap:16px}
   .wrap-foot{padding:0 12px 40px}
   .tabs{padding:0 10px;gap:4px}
   .steps li{grid-template-columns:32px minmax(0,1fr)}
   .steps .sv{grid-column:2;align-items:flex-start;text-align:left;min-width:0}
-  .cta-band{padding:20px 18px}
   .kpi .v{font-size:23px}
   .kpi .k{letter-spacing:.07em;min-height:2.6em}
   .shead h3{font-size:20px}
   .explain{font-size:15px}
   .chartbox{padding:12px 10px 8px;margin-left:-6px;margin-right:-6px}
   .callouts,.opps{grid-template-columns:1fr}
-  .tally .rows{grid-template-columns:1fr}
   .foot-note{grid-template-columns:1fr}
   .split div{font-size:12.5px;padding-left:10px}
 }
@@ -347,15 +295,13 @@ th:first-child,td:first-child{text-align:left}
   .tabs,.next{display:none !important}
   .panel[hidden]{display:block !important}
   .panel + .panel{break-before:page}
-  header .right,.toc,.tally a.cta,.readout,details summary{display:none}
+  header .right,.readout,details summary{display:none}
   details{display:block} details > .tbl{display:block}
   .wrap{display:block;padding:12px 0 0;max-width:none}
-  aside{position:static;margin:16px 0}
-  .card,.tally{box-shadow:none}
-  .tally{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card{box-shadow:none}
   main{gap:14px;margin-top:14px}
-  .opp,.point,.callout,.kpi,.word,.steps li,.chartbox,.shead,.tally,#pie,.pie-side .grp,.line60{break-inside:avoid}
-  .shead,.explain,.words .head,.steps-h{break-after:avoid}
+  .opp,.point,.callout,.kpi,.steps li,.chartbox,.shead,#pie,.pie-side .grp,.line60{break-inside:avoid}
+  .shead,.explain,.steps-h{break-after:avoid}
   .chart svg{width:100% !important;height:auto !important}
   .chartbox,.split,.split div,.kpi,.num,.steps .n,.tag,.mk,#fp{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .foot-note{display:grid}
@@ -416,54 +362,17 @@ th:first-child,td:first-child{text-align:left}
   <div class="card intro">
     <div class="kicker">Citygate Church &middot; August 2025 to September 2026</div>
     <h2>How your building uses electricity</h2>
-    <p class="lead">Every half-hour, the meter at Citygate records how much electricity the building is using. We read all <b>20,350 readings</b>, from 1&nbsp;August 2025 to 28&nbsp;September 2026. This is what they say, in plain English.</p>
     <div class="kpis">
       <div class="kpi"><div class="k">Used in a year</div><div class="v">161,500<small>kWh</small></div><div class="s">About what 60 typical homes use in a year.</div></div>
       <div class="kpi"><div class="k">Busiest moment</div><div class="v">80<small>kW</small></div><div class="s">1pm, Monday 5 January 2026, the first working day after Christmas. Like 27 kettles boiling at once.</div></div>
       <div class="kpi"><div class="k">Running at night</div><div class="v">8.6<small>kW</small></div><div class="s">The average from 1am to 5am, with the building empty. It never drops to zero.</div></div>
       <div class="kpi"><div class="k">Year on year</div><div class="v good">&darr;&thinsp;25<small>%</small></div><div class="s">Good news: 1 August to 28 September 2026, against the same dates in 2025.</div></div>
     </div>
-    <p class="note-ill">kW, kWh and kVA are explained just below. &ldquo;A year&rdquo; means the 365 days to 28 September 2026; a typical home uses about 2,700 kWh a year.</p>
+    <p class="note-ill">&ldquo;A year&rdquo; means the 365 days to 28 September 2026; a typical home uses about 2,700 kWh a year.</p>
   </div>
 
-  <aside>
-    <nav class="card toc" aria-label="In this portrait">
-      <div class="k">In this portrait</div>
-      <a href="#s-words" data-jump><span>&bull;</span>Three words to know</a>
-      <a href="#s-year" data-jump><span>01</span>The whole year in one picture</a>
-      <a href="#s-week" data-jump><span>02</span>A week in the life</a>
-      <a href="#s-split" data-jump><span>03</span>Where the electricity goes</a>
-      <a href="#s-season" data-jump><span>04</span>Through the year</a>
-      <a href="#s-cap" data-jump><span>05</span>The size of the connection</a>
-    </nav>
-  </aside>
 
   <main>
-
-    <!-- ===== three words ===== -->
-    <section class="card words" id="s-words" aria-labelledby="h-words">
-      <div class="head">
-        <h3 id="h-words">Three words that make the rest easy</h3>
-        <p>Each one appears on your bill.</p>
-      </div>
-      <div class="wgrid">
-        <div class="word">
-          <div class="top"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 17a8.5 8.5 0 1 1 15 0"/><path d="M12 13.5l4-4.5"/><circle cx="12" cy="13.5" r="1.4" fill="currentColor"/></svg></div><div class="t">kW<span>kilowatt</span></div></div>
-          <p><b>How hard the building is drawing power at a moment</b>, like the speedometer in a car.</p>
-          <p class="eg">A kettle draws about 3 kW while it boils.</p>
-        </div>
-        <div class="word">
-          <div class="top"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 9 4"/><path d="M20 20 15 4"/><path d="M12 6v2.5M12 11v2.5M12 16v2.5"/></svg></div><div class="t">kWh<span>kilowatt-hour</span></div></div>
-          <p><b>How much electricity was used over time</b>, like miles travelled. Most of the bill is charged per kWh.</p>
-          <p class="eg">One kW for one hour is one kWh.</p>
-        </div>
-        <div class="word">
-          <div class="top"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20v-3a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="M8 15V7a4 4 0 0 1 8 0v8"/><path d="M4 20h16"/></svg></div><div class="t">kVA<span>connection size</span></div></div>
-          <p><b>How much power the grid connection is reserved to carry</b>, like the seats booked in a hall. You pay for it every day.</p>
-          <p class="eg">Measured a little differently from kW: for this building, 1 kW needs roughly 1 to 1.1 kVA.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== 01 the year ===== -->
     <section class="card find" id="s-year" aria-labelledby="h-year">
@@ -498,11 +407,6 @@ th:first-child,td:first-child{text-align:left}
       <div class="chartbox">
         <div class="legend" aria-hidden="true"><span><i class="line" style="background:var(--winter)"></i>Winter week (Nov&ndash;Feb)</span><span><i class="line" style="background:var(--summer)"></i>Summer week (May&ndash;Aug)</span><span><i class="band"></i>Sunday</span><span style="color:var(--muted)">Small ticks mark 6am, noon and 6pm</span></div>
         <div class="chart" id="week"></div>
-      </div>
-      <div class="points">
-        <div class="point"><div class="fig" id="f-sun">48<small>kW</small></div><h4>Sundays start early</h4><p>Use climbs from about 6am and reaches about 48 kW in winter during morning services. It eases after lunch, then rises again to about 30 kW on winter Sunday evenings.</p></div>
-        <div class="point"><div class="fig">45<small>kW</small></div><h4>Weekdays run long</h4><p>From 8am to mid-afternoon the offices, caf&eacute;, groups and heating keep the building at around 45 kW in winter, nearly twice the summer level.</p></div>
-        <div class="point"><div class="fig">7&ndash;9<small>kW</small></div><h4>Nights are quiet, not empty</h4><p>Between midnight and 6am the building usually draws about 7 to 9 kW. Winter nights are only 1 to 2 kW higher than summer nights, so most of the overnight load is equipment left on.</p></div>
       </div>
     </section>
 
@@ -567,19 +471,14 @@ th:first-child,td:first-child{text-align:left}
   <section class="card savings" aria-labelledby="h-savings">
     <div class="kicker">Savings &amp; next steps</div>
     <h2 id="h-savings">Four ways the data points to lower bills</h2>
-    <p class="lead">What each could be worth in a year, in a sensible order to take them in. They overlap in places, so they should not simply be added together.</p>
+    <p class="lead">What each could be worth in a year, in a sensible order to take them in.</p>
     <ol class="steps">
       <li><div class="n">1</div><div><h4>Tell the supplier about your charity use</h4><p>With charity use around 88%, over the 60% line, one declaration to British Gas puts the whole supply on the charity rate of VAT &mdash; 0% until 31 March 2027, then 5% instead of 20% &mdash; with no Climate Change Levy. Your VAT adviser confirms the share first. Ask too for any VAT and levy overpaid in the last four years.</p></div><div class="sv"><div class="v">£8,000&ndash;£10,000</div><small>a year</small><span class="tag now">Ready now</span></div></li>
       <li><div class="n">2</div><div><h4>Reduce the grid connection to 110 kVA</h4><p>An application to SSEN, the network operator; the daily capacity charge then falls on every bill. Confirm the busiest kVA figure on the invoices first and allow for any heat pumps or car chargers: reductions are allowed once a year, and capacity given up can cost money to get back.</p></div><div class="sv"><div class="v">£3,300&ndash;£6,500</div><small>a year</small><span class="tag now">Ready now</span></div></li>
       <li><div class="n">3</div><div><h4>Walk the building one evening</h4><p>After everyone has gone home, note what is still running: fridges, urns and water heaters, IT, heating controls and outside lights. Two timers to ask about: an extra load from 2am to 4am on most Sundays, and heating that ran all day on Boxing Day.</p></div><div class="sv"><div class="v">£3,800</div><small>a year per 2 kW switched off</small><span class="tag walk">Needs a walk-round</span></div></li>
       <li class="later"><div class="n">4</div><div><h4>Check the network band</h4><p>Your bill shows the band today. With the smaller connection in place, the band can drop when bands are next reset, in April 2031: up to £12,000 a year from the top band, nearer £1,000 from the band below.</p></div><div class="sv"><div class="v">£1,000&ndash;£12,000</div><small>a year</small><span class="tag later">From 2031</span></div></li>
     </ol>
-    <p class="note-ill">At today&rsquo;s usage, assuming you stay with your current supplier on today&rsquo;s prices.</p>
   </section>
-  <div class="tally cta-band">
-    <div><div class="k">Next step</div><h2>Talk to us about putting these in place</h2></div>
-    <a class="cta" href="mailto:callum@renewablox.com?subject=Citygate%20Church%20%E2%80%94%20electricity%20next%20steps" target="_blank" rel="noopener">Talk to us about next steps</a>
-  </div>
 </div>
 </div>
 
@@ -713,7 +612,6 @@ function drawWeek(){
   // annotations: the Sunday and weekday peaks, and the overnight floor
   const peakIn = (a, b) => { let k = a; for (let i = a; i < b; i++) if (wv[i] > wv[k]) k = i; return k; };
   const sun = peakIn(144, 168), wk = peakIn(24, 48);
-  $('#f-sun').innerHTML = `${Math.round(wv[sun])}<small>kW</small>`;
   const ann = (i, text, anchor) => {
     el('circle', {cx:x(i), cy:y(wv[i]), r:4.5, fill:css('--winter'), stroke:'#fff', 'stroke-width':2}, svg);
     el('text', {x:x(i) + (anchor === 'end' ? -9 : 9), y:y(wv[i]) - 8, 'text-anchor':anchor, class:'t-ann halo'}, svg, text);
@@ -984,15 +882,6 @@ let printHidden = [];
 addEventListener('beforeprint', () => { const hid = [...document.querySelectorAll('.panel[hidden]')]; if (hid.length) printHidden = hid; hid.forEach(n => n.hidden = false); redraw(true); });
 addEventListener('afterprint', () => { printHidden.forEach(n => n.hidden = true); printHidden = []; redraw(true); });
 $('#print').addEventListener('click', () => print());
-// in-page links scroll rather than navigate: inside Streamlit's frame a bare #anchor would load the app's own URL
-document.querySelectorAll('[data-jump]').forEach(a => a.addEventListener('click', e => {
-  e.preventDefault(); const t = document.querySelector(a.getAttribute('href'));
-  if (t) t.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
-}));
-// highlight the section in view
-const links = [...document.querySelectorAll('.toc a')];
-const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id)); }), {rootMargin:'-40% 0px -55% 0px'});
-document.querySelectorAll('main > section').forEach(s => io.observe(s));
 })();
 </script>
 </body></html>
