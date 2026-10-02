@@ -604,7 +604,7 @@ th:first-child,td:first-child{text-align:left}
       </div>
       <div class="sim-card tem">
         <div class="sc-h"><span class="sc-name"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>Moving to tem with RenewaBlox</span></div>
-        <div class="sc-tags"><span>RED + RED Plus</span><span>0.8p RenewaBlox commission</span><span>110 kVA</span><span>Charity VAT, no levy</span></div>
+        <div class="sc-tags"><span>RED + RED Plus</span><span>0.7p RenewaBlox commission</span><span>110 kVA</span><span>Charity VAT, no levy</span></div>
         <div class="sc-total"><span id="tem-total"></span><small>a year</small></div>
         <div class="sc-month" id="tem-month"></div>
         <div class="sc-bar"><span id="tem-bar"></span></div>
@@ -1047,14 +1047,14 @@ function drawPie(){
 (function buildSim(){
   // Like for like, from 9 June 2027 when today's British Gas contract ends: both sides at 110 kVA, the charity rate
   // of VAT (5%; the 0% rate ends 31 March 2027) and no Climate Change Levy. Each unit rate carries its broker's
-  // commission: British Gas's renewal includes 1.00p a kWh for its broker; 0.8p is added to tem's quoted rates for
+  // commission: British Gas's renewal includes 1.00p a kWh for its broker; 0.7p is added to tem's quoted rates for
   // RenewaBlox. British Gas's renewal standing charge includes the national network charge (TNUoS), and the Nuclear
   // RAB levy is a separate line, as on today's bills; tem passes the network charge through at cost and includes the RAB
   // levy in its rates.
   let night = 0, all = 0;
   for (let d = ND - 365; d < ND; d++) for (let p = 0; p < NP; p++) { const k = DATA.heat[d][p] / 20; all += k; if (p < 14) night += k; }
   const nk = Math.round(night / 100) * 100, tk = Math.round(all / 100) * 100, dk = tk - nk;
-  const VAT = 0.05, KVA = 110, BG_COMM = 1.0, TEM_COMM = 0.8, RAB = 0.46, TNUOS = 680.26;  // TNUoS in £/month, tem's forecast for the site
+  const VAT = 0.05, KVA = 110, BG_COMM = 1.0, TEM_COMM = 0.7, RAB = 0.46, TNUOS = 680.26;  // TNUoS in £/month, tem's forecast for the site
   const r10 = v => Math.round(v / 10) * 10, gbp = v => (v < 0 ? '−£' : '£') + fmt(Math.abs(v)), p2 = v => v.toFixed(2) + 'p';
   const BG = {day:23.850, night:16.960, standing:2428.600, capacity:10.930};                        // p/kWh, p/day, p/kVA/day
   const TEM = {day:23.2942 + TEM_COMM, night:17.9212 + TEM_COMM, redDay:1.464, redNight:1.099, standing:5.72, capacity:3.87}; // standing, capacity £/month
@@ -1100,7 +1100,7 @@ function drawPie(){
     {k:'Standing and network charges', d:'£5.72 a month plus the network charge at cost, against £24.29 a day with it included.', v:d('Standing charge') + d('National network charge')},
     {k:'RED Plus benefit', d:'tem’s exempt-supply benefit off every unit.', v:d('RED Plus benefit')},
     {k:'Nuclear RAB levy', d:'Inside tem’s rates; billed on top by British Gas.', v:d('Nuclear RAB levy')},
-    {k:'Unit rates, each with its commission', d:'tem’s rates with 0.8p, against British Gas’s with 1p.', v:d('Electricity in the day') + d('Electricity at night')},
+    {k:'Unit rates, each with its commission', d:'tem’s rates with 0.7p, against British Gas’s with 1p.', v:d('Electricity in the day') + d('Electricity at night')},
     {k:'Capacity rate', d:'£3.87 a kVA a month, against 10.93p a kVA a day (about £3.32 a month).', v:d('Grid connection')},
     {k:'VAT on the difference', d:'5% on both.', v:temVat - bgVat},
   ].sort((a, b) => a.v - b.v);
@@ -1108,7 +1108,7 @@ function drawPie(){
   const bar = v => { const w = Math.min(50, Math.abs(v) / mx * 50); return `<div class="dif-bar"><span style="${v < 0 ? `right:50%;width:${w}%;background:var(--good)` : `left:50%;width:${w}%;background:var(--warn)`}"></span></div>`; };
   $('#dif').innerHTML = DIF.map(o => `<div class="dif-row"><div><h4>${o.k}</h4><p>${o.d}</p></div>${bar(o.v)}<div class="dif-v ${o.v < 0 ? 'cheap' : 'dear'}">${o.v < 0 ? '−' : '+'}£${fmt(Math.abs(o.v))}<small>${o.v < 0 ? 'cheaper with tem' : 'dearer with tem'}</small></div></div>`).join('')
     + `<div class="dif-row net"><div><h4>Net, a year</h4><p>Adds up to the difference above.</p></div>${bar(-save)}<div class="dif-v ${save > 0 ? 'cheap' : 'dear'}">${save > 0 ? '−' : '+'}£${fmt(Math.abs(save))}<small>${save > 0 ? 'cheaper with tem' : 'dearer with tem'}</small></div></div>`;
-  $('#sim-note').innerHTML = `Both bills use the last 12 months of meter readings: ${fmt(tk)} kWh, ${Math.round(nk / tk * 100)}% of it between midnight and 7am, British Gas&rsquo;s night hours too. British Gas at its renewal prices, which include a 1.00p broker uplift and, we take it, the 7% Direct Debit discount. Its standing charge includes the national network charge, and the Nuclear RAB levy (0.46p a kWh) is a separate line, as on today&rsquo;s bills. When network charges rose in April 2026, British Gas added the increase as a separate line (£10.85 a day from May 2026), so the same could happen again; tem passes the actual charge through. tem at its quote for 9 June 2027 to 8 June 2029 (RED day/night fixed) with 0.8p a kWh added to both rates for RenewaBlox. tem&rsquo;s network charge is its forecast for the site; the charge is set by the site&rsquo;s band, not the supplier. Meter and reactive power charges, passed through at cost, are left out of both. Savings over a contract assume today&rsquo;s use each year.`;
+  $('#sim-note').innerHTML = `Both bills use the last 12 months of meter readings: ${fmt(tk)} kWh, ${Math.round(nk / tk * 100)}% of it between midnight and 7am, British Gas&rsquo;s night hours too. British Gas at its renewal prices, which include a 1.00p broker uplift and, we take it, the 7% Direct Debit discount. Its standing charge includes the national network charge, and the Nuclear RAB levy (0.46p a kWh) is a separate line, as on today&rsquo;s bills. When network charges rose in April 2026, British Gas added the increase as a separate line (£10.85 a day from May 2026), so the same could happen again; tem passes the actual charge through. tem at its quote for 9 June 2027 to 8 June 2029 (RED day/night fixed) with 0.7p a kWh added to both rates for RenewaBlox. tem&rsquo;s network charge is its forecast for the site; the charge is set by the site&rsquo;s band, not the supplier. Meter and reactive power charges, passed through at cost, are left out of both. Savings over a contract assume today&rsquo;s use each year.`;
 })();
 
 /* ---------- tabs ---------- */
