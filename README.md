@@ -32,7 +32,7 @@ The page opens on a chart, not a wall of text, and splits into three tabs:
    at 110 kVA with the charity rate of VAT (5%) and no Climate Change Levy.
    Each unit rate carries its broker's commission, shown in the open: 1.00p a
    kWh for British Gas's broker, Annex Solutions (in British Gas's renewal
-   prices), and 0.5p a kWh for RenewaBlox (added to tem's quoted rates).
+   prices), and 0.8p a kWh for RenewaBlox (added to tem's quoted rates).
    British Gas's renewal standing charge includes the national network charge
    (TNUoS), and the Nuclear RAB levy is a separate line, as on today's bills;
    tem passes the network charge through at cost (its forecast for the site)
